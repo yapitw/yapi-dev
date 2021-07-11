@@ -2,16 +2,16 @@ import P5 from 'p5'
 
 export const sketch = (s: P5): void => {
     let centerPoint: P5.Vector
-    let screenCenter: P5.Vector
+
     s.setup = () => {
         s.createCanvas(500, 500)
         s.background(100)
         centerPoint = s.createVector(s.width / 2, s.height / 2)
-        screenCenter = s.createVector(s.width / 2, s.height / 2)
+        
     }
 
     s.draw = () => {
-        const { frameCount, mouseX, mouseY, LEFT, TOP } = s
+        const { frameCount, mouseX, mouseY } = s
 
         s.noStroke()
         const points = []

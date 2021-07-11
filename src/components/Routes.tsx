@@ -25,7 +25,7 @@ const Routes = () => {
             <Route path={'/noc/:lecture'} component={NatureOfCode} />
 
             <Route path={'/exp/'}>
-                <Redirect to="/exp/Lab12" />
+                <Redirect to="/exp/Lab14" />
             </Route>
 
             <Route path={'/noc/'}>

@@ -1,8 +1,11 @@
-export type ILab = { constructors: (HTMLElement: HTMLElement) => void } & {
+class ILab {
     title?: string
     description?: string
     tags?: string
-}
+    constructor(HTMLElement: HTMLElement) {
+        return
+    }
+} 
 
 // export { Lab0 } from './0'
 // export { Lab1 } from './1'
@@ -17,8 +20,10 @@ import { Lab9 } from './9'
 import { Lab10 } from './10'
 import { Lab11 } from './11'
 import { Lab12 } from './12'
+import { Lab13 } from './13'
+import { Lab14 } from './14'
 
-const libs: { [key: string]: any } = {
+const libs: { [key: string]: ILab } = {
     Lab3,
     Lab4,
     Lab5,
@@ -29,6 +34,8 @@ const libs: { [key: string]: any } = {
     Lab10,
     Lab11,
     Lab12,
+    Lab13,
+    Lab14,
 }
 
 export default libs
