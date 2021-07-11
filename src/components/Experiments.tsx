@@ -1,5 +1,5 @@
-import * as React from 'react'
-import * as labs from '../labs'
+import React from 'react'
+import labs from '../labs'
 import { NavLink, RouteChildrenProps, useParams } from 'react-router-dom'
 import ThreeContainer from './ThreeContainer'
 import './experiments.scss'

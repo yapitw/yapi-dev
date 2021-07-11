@@ -21,7 +21,7 @@ interface ILab {
     tags: string
 }
 
-const libs: { [key: string]: ILab } = {
+const labs: { [key: string]: ILab } = {
     Lab3,
     Lab4,
     Lab5,
@@ -36,4 +36,4 @@ const libs: { [key: string]: ILab } = {
     Lab14,
 }
 
-export default libs
+export default labs
