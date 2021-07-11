@@ -2,7 +2,7 @@ import * as React from 'react'
 import './about.scss'
 import { careerData, skillsData } from './aboutData'
 
-const About = () => {
+const About: React.FC = () => {
     const skills = (
         <>
             <h1 className="first-title">Tools I use</h1>
@@ -40,19 +40,19 @@ const About = () => {
                 <ul>
                     <li>
                         E-mail:{' '}
-                        <a href="mailto:yapi.tw@gmail.com" target="_blank">
+                        <a href="mailto:yapi.tw@gmail.com" target="_blank" rel="noreferrer">
                             yapi.tw@gmail.com
                         </a>
                     </li>
                     <li>
                         GitHub:{' '}
-                        <a href="https://github.com/yapitw/" target="_blank">
+                        <a href="https://github.com/yapitw/" target="_blank" rel="noreferrer">
                             https://github.com/yapitw/
                         </a>
                     </li>
                     <li>
                         CodePen:{' '}
-                        <a href="https://codepen.io/yapi/" target="_blank">
+                        <a href="https://codepen.io/yapi/" target="_blank" rel="noreferrer">
                             https://codepen.io/yapi/
                         </a>
                     </li>

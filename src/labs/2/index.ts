@@ -1,11 +1,14 @@
 import * as THREE from 'three'
 import { ThreeLab } from '../template'
+import vertexShader from './shaderVertex.glsl?raw'
+import fragmentShader from './shaderFragment.glsl?raw'
+
 type IUniforms = {
-    u_time: { type: 'f'; value: number }
-    u_resolution: { type: 'v2'; value: THREE.Vector2 }
-    u_mouse: { type: 'v2'; value: THREE.Vector2 }
-    u_texture: { type: 't'; value: THREE.Texture }
-    u_picture: { type: 't'; value: THREE.Texture }
+    u_time?: { type: 'f'; value: number }
+    u_resolution?: { type: 'v2'; value: THREE.Vector2 }
+    u_mouse?: { type: 'v2'; value: THREE.Vector2 }
+    u_texture?: { type: 't'; value: THREE.Texture }
+    u_picture?: { type: 't'; value: THREE.Texture }
 }
 
 export class Lab2 extends ThreeLab {
@@ -13,22 +16,21 @@ export class Lab2 extends ThreeLab {
     static tags = 'glsl three.js'
     static description = 'Calculation on previous screen'
 
-    uniforms: IUniforms
-    textBuffer1: THREE.WebGLRenderTarget
-    textBuffer2: THREE.WebGLRenderTarget
+    uniforms: IUniforms = {}
+    textBuffer1 = new THREE.WebGLRenderTarget(0, 0)
+    textBuffer2 = new THREE.WebGLRenderTarget(0, 0)
     switchTag: boolean
 
     constructor(container: HTMLDivElement) {
         super(container)
+        this.pixelRatio = 1
+        this.renderSize = 512
+        this.switchTag = false
         this.init()
         this.animation()
     }
 
     init = () => {
-        this.pixelRatio = 1
-        this.renderSize = 512
-        this.switchTag = false
-
         const { scene, camera, renderer, pixelRatio, renderSize } = this
         renderer.setSize(renderSize, renderSize, false)
         renderer.setPixelRatio(pixelRatio)
@@ -44,14 +46,14 @@ export class Lab2 extends ThreeLab {
                 value: new THREE.Vector2(renderSize * pixelRatio, renderSize * pixelRatio),
             },
             u_mouse: { type: 'v2', value: new THREE.Vector2() },
-            u_texture: { type: 't', value: undefined },
-            u_picture: { type: 't', value: undefined },
+            u_texture: { type: 't', value: new THREE.Texture() },
+            u_picture: { type: 't', value: new THREE.Texture() },
         }
 
         const material = new THREE.ShaderMaterial({
             uniforms: this.uniforms,
-            vertexShader: require('./shaderVertex.glsl'),
-            fragmentShader: require('./shaderFragment.glsl'),
+            vertexShader,
+            fragmentShader,
         })
         const mesh = new THREE.Mesh(geometry, material)
         scene.add(mesh)
@@ -71,13 +73,15 @@ export class Lab2 extends ThreeLab {
     animation = () => {
         if (!this.playing) return
         const { scene, camera, renderer } = this
-        for (let i = 0; i < 8; i++) {
-            this.uniforms.u_texture.value = this[this.switchTag ? 'textBuffer1' : 'textBuffer2'].texture
-            renderer.setRenderTarget(this[this.switchTag ? 'textBuffer2' : 'textBuffer1'])
-            renderer.render(scene, camera)
-            this.uniforms.u_texture.value = this[this.switchTag ? 'textBuffer2' : 'textBuffer1'].texture
-            this.switchTag = !this.switchTag
-            this.uniforms.u_time.value += 1
+        if (this.uniforms.u_texture) {
+            for (let i = 0; i < 8; i++) {
+                this.uniforms.u_texture.value = this[this.switchTag ? 'textBuffer1' : 'textBuffer2'].texture
+                renderer.setRenderTarget(this[this.switchTag ? 'textBuffer2' : 'textBuffer1'])
+                renderer.render(scene, camera)
+                this.uniforms.u_texture.value = this[this.switchTag ? 'textBuffer2' : 'textBuffer1'].texture
+                this.switchTag = !this.switchTag
+                if (this.uniforms.u_time) this.uniforms.u_time.value += 1
+            }
         }
 
         renderer.setRenderTarget(null)

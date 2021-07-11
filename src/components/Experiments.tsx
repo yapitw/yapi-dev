@@ -1,11 +1,11 @@
 import * as React from 'react'
 import * as labs from '../labs'
-import { NavLink, RouteChildrenProps } from 'react-router-dom'
+import { NavLink, RouteChildrenProps, useParams } from 'react-router-dom'
 import ThreeContainer from './ThreeContainer'
 import './experiments.scss'
 
-const Experiments: React.FC<RouteChildrenProps<{ id: string }>> = (props) => {
-    const id = props.match.params.id
+const Experiments: React.FC<RouteChildrenProps<{ id: string }>> = () => {
+    const { id } = useParams<{ id: string }>()
     const list = Object.keys(labs)
 
     const currentIndex = list.findIndex((key) => key === id)

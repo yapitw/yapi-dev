@@ -1,19 +1,20 @@
 import * as THREE from 'three'
 import { ThreeLab } from '../template'
+import vertexShader from './shaderVertex.glsl?raw'
+import fragmentShader from './shaderFragment.glsl?raw'
 
 export class Lab1 extends ThreeLab {
     static title = 'GLSL Texture'
     static tags = 'glsl three.js'
     static description = ''
 
-    mesh: THREE.Mesh
+    mesh = new THREE.Mesh()
 
     constructor(container: HTMLDivElement) {
         super(container)
         this.init()
-        this.animation()
     }
-    init = () => {
+    init = (): void => {
         this.pixelRatio = window.devicePixelRatio
         this.renderSize = 512
         const { scene, camera, renderer, pixelRatio, renderSize } = this
@@ -28,8 +29,8 @@ export class Lab1 extends ThreeLab {
 
         const material = new THREE.RawShaderMaterial({
             uniforms: this.uniforms,
-            vertexShader: require('./shaderVertex.glsl'),
-            fragmentShader: require('./shaderFragment.glsl'),
+            vertexShader,
+            fragmentShader,
             transparent: true,
             depthWrite: false,
             depthTest: false,
@@ -40,12 +41,13 @@ export class Lab1 extends ThreeLab {
         const geometry = new THREE.TorusKnotBufferGeometry(1, 0.25, 200, 18, 4, 3)
         this.mesh = new THREE.Mesh(geometry, material)
         scene.add(this.mesh)
+        this.animation()
     }
 
-    animation = () => {
+    animation = (): void => {
         if (!this.playing) return
         const { scene, camera, renderer } = this
-        this.uniforms.u_time.value += 0.005
+        if (this.uniforms.u_time) this.uniforms.u_time.value += 0.005
         renderer.render(scene, camera)
         requestAnimationFrame(this.animation)
         if (!this.terminated) this.mesh.rotateY(-0.05)

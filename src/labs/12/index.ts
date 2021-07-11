@@ -1,7 +1,7 @@
 import P5 from 'p5'
 
-export const sketch = (s: P5) => {
-    let creatures: Creature[] = []
+export const sketch = (s: P5): void => {
+    const creatures: Creature[] = []
     const margin = 100
     const maxLife = 500
     const amount = 1000
@@ -40,7 +40,12 @@ export const sketch = (s: P5) => {
         constructor() {
             this.maxSize = 2
             this.life = s.random(Math.round(maxLife / 3), maxLife)
-            this.init()
+            this.age = 0
+            this.alpha = 0
+            this.size = 0
+            this.p = s.createVector(s.random(-margin, s.width + margin), s.random(-margin, s.height + margin))
+            this.v = s.createVector()
+            this.color = s.color(s.random(colorList))
         }
 
         init() {
@@ -78,8 +83,7 @@ export const sketch = (s: P5) => {
 
             const noiseScale = 1000
             while (iteration > 0) {
-                const angle =
-                    s.noise(this.p.x / noiseScale, this.p.y / noiseScale, randomID) * s.TWO_PI * noiseScale
+                const angle = s.noise(this.p.x / noiseScale, this.p.y / noiseScale, randomID) * s.TWO_PI * noiseScale
 
                 this.v = s.createVector(s.cos(angle), s.sin(angle)).mult(0.2)
                 this.p.add(this.v)
@@ -98,10 +102,10 @@ export const sketch = (s: P5) => {
 export class Lab12 {
     static title = 'Noise Flow 2'
     static tags = 'p5js'
-    static description = `Practice of p5.js generative animation`
+    static description = 'Practice of p5.js generative animation'
 
     instance: P5
-    playing: boolean = true
+    playing = true
     constructor(element: HTMLElement) {
         this.instance = new P5(sketch, element)
     }

@@ -8,16 +8,16 @@ export class Lab5 extends P5Lab {
     static tags = 'perlin-noise canvas'
     static description = ''
 
-    terminated: boolean = false
+    terminated = false
     app: HTMLDivElement
     cvs: HTMLCanvasElement
-    ctx: CanvasRenderingContext2D
-    height: number = 500
-    width: number = 500
-    gridSize: number = 25 // size of force saving
-    xoff: number = 0
-    yoff: number = 0
-    zoff: number = 0
+    ctx: CanvasRenderingContext2D | null
+    height = 500
+    width = 500
+    gridSize = 25 // size of force saving
+    xoff = 0
+    yoff = 0
+    zoff = 0
 
     constructor(container: HTMLDivElement) {
         super()
@@ -30,22 +30,25 @@ export class Lab5 extends P5Lab {
     init = () => {
         this.cvs.width = this.width
         this.cvs.height = this.height
-        ;(this.app ? this.app : document.querySelector('body')).appendChild(this.cvs)
+        ;(this.app ? this.app : document.body).appendChild(this.cvs)
 
         this.draw()
         this.update()
     }
 
     clear = () => {
+        if (!this.ctx) return
         this.ctx.clearRect(0, 0, this.width, this.height)
     }
 
     draw = () => {
+        if (!this.ctx) return
         this.ctx.fillStyle = '#ffffff'
         this.ctx.fillRect(0, 0, this.width, this.height)
     }
 
     drawPerlin = () => {
+        if (!this.ctx) return
         // this.ctx.beginPath()
         this.ctx.strokeStyle = '#000'
 

@@ -1,10 +1,10 @@
 import * as React from 'react'
 import './webWorks.scss'
 
-const img_eid = require('../images/work-eid.png')
-const img_wordsring = require('../images/work-wordsring.png')
-const img_arcteryx = require('../images/work-arcteryx.jpg')
-const img_innolux = require('../images/work-innolux.png')
+import img_eid from '../images/work-eid.png'
+import img_wordsring from '../images/work-wordsring.png'
+import img_arcteryx from '../images/work-arcteryx.jpg'
+import img_innolux from '../images/work-innolux.png'
 
 const webWorkData: {
     title: string
@@ -32,7 +32,7 @@ const webWorkData: {
         contents: ['Entire page.', 'Use three.js webgl library simulating 3D ring with customized content.'],
     },
     {
-        title: "Arc'teryx NODIN",
+        title: 'Arc\'teryx NODIN',
         link: 'http://www.starlike.com.tw/ARC/NODIN/',
         image: img_arcteryx,
         contents: ['HTML CSS Layout slicing according to design.', 'CSS Animation.', 'JQuery interaction.'],
@@ -53,16 +53,16 @@ const WebWorks = () => {
                 {webWorkData.map((work, index) => {
                     return (
                         <section className="primary" key={index}>
-                            <a href={work.link} target="_blank">
+                            <a href={work.link} target="_blank" rel="noreferrer">
                                 <img src={work.image} />
                             </a>
                             <div className="description">
                                 <h3 className="subtitle">{work.title}</h3>
-                                <a href={work.link} target="_blank">
+                                <a href={work.link} target="_blank" rel="noreferrer">
                                     {work.link}
                                 </a>
                                 {work.sourceCode && (
-                                    <a style={{ marginLeft: '1em' }} href={work.sourceCode} target="_blank">
+                                    <a style={{ marginLeft: '1em' }} href={work.sourceCode} target="_blank" rel="noreferrer">
                                         source code
                                     </a>
                                 )}

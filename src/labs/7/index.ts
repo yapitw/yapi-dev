@@ -4,24 +4,24 @@ import { ParticleSystem, Particle, Vec2 } from './Particle'
 
 const perlin = new PerlinNoise()
 
-let particleDots
-const forceMap = {}
+let particleDots: ParticleSystem
+const forceMap: { [key: string]: Vec2 } = {}
 
 export class Lab7 extends P5Lab {
     static title = 'Noise Pace'
     static tags = 'perlin-noise canvas'
     static description = ''
 
-    terminated: boolean = false
+    terminated = false
     app: HTMLDivElement
     cvs: HTMLCanvasElement
-    ctx: CanvasRenderingContext2D
-    height: number = 3000
-    width: number = 3000
-    gridSize: number = 25 // size of force saving
-    xoff: number = 0
-    yoff: number = 0
-    zoff: number = 0
+    ctx: CanvasRenderingContext2D | null
+    height = 3000
+    width = 3000
+    gridSize = 25 // size of force saving
+    xoff = 0
+    yoff = 0
+    zoff = 0
 
     constructor(container: HTMLDivElement) {
         super()
@@ -31,7 +31,7 @@ export class Lab7 extends P5Lab {
         this.init()
     }
 
-    init = () => {
+    init = (): void => {
         this.cvs.width = this.width
         this.cvs.height = this.height
         this.app.appendChild(this.cvs)
@@ -53,25 +53,29 @@ export class Lab7 extends P5Lab {
                 forceMap[`X${Math.floor(particle.x / this.gridSize)}Y${Math.floor(particle.y / this.gridSize)}`] ||
                 new Vec2(0, 0)
 
-            this.ctx.globalAlpha = 0.1
-            this.ctx.fillStyle = '#ff1100'
-            this.ctx.beginPath()
-            this.ctx.translate(particle.x, particle.y)
-            this.ctx.arc(0, 0, 1, 0, Math.PI * 2)
-            this.ctx.fill()
-            this.ctx.resetTransform()
+            if (this.ctx) {
+                this.ctx.globalAlpha = 0.1
+                this.ctx.fillStyle = '#ff1100'
+                this.ctx.beginPath()
+                this.ctx.translate(particle.x, particle.y)
+                this.ctx.arc(0, 0, 1, 0, Math.PI * 2)
+                this.ctx.fill()
+                this.ctx.resetTransform()
+            }
         }
         this.update()
     }
 
-    clear = () => {
+    clear = (): void => {
+        if (!this.ctx) return
         this.ctx.globalAlpha = 1
         this.ctx.fillStyle = '#ffffff'
         this.ctx.fillRect(0, 0, this.width, this.height)
         this.ctx.globalAlpha = 1
     }
 
-    drawPerlin = () => {
+    drawPerlin = (): void => {
+        if (!this.ctx) return
         // this.ctx.beginPath()
         this.ctx.strokeStyle = '#000'
 
@@ -87,7 +91,7 @@ export class Lab7 extends P5Lab {
         }
     }
 
-    update = () => {
+    update = (): void => {
         if (!this.playing) return
         // this.clear()
         this.drawPerlin()

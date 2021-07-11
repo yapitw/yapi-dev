@@ -90,7 +90,7 @@ export const lecture1_3 = (s: p5) => {
         s.translate(s.width / 2, s.height / 2)
 
         // let v = s.createVector(s.random(-100, 100), s.random(-100, 100))
-        let v = p5.Vector.random2D()
+        const v = p5.Vector.random2D()
         v.mult(s.random(0, 100))
 
         s.strokeWeight(2)
@@ -142,7 +142,7 @@ export const lecture1_6 = (s: p5) => {
 
         update() {
             const { s } = this
-            let mouse = s.createVector(s.mouseX || s.width / 2, s.mouseY || s.height / 2)
+            const mouse = s.createVector(s.mouseX || s.width / 2, s.mouseY || s.height / 2)
             this.acc = p5.Vector.sub(mouse, this.pos)
             this.acc.setMag(0.5)
             this.vel.add(this.acc)
@@ -202,7 +202,7 @@ export const lecture1_7 = (s: p5) => {
 
         const step = p5.Vector.random2D()
 
-        var r = s.random(100)
+        const r = s.random(100)
         if (r < 1) {
             step.setMag(s.random(25, 100))
         } else {

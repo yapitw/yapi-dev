@@ -1,24 +1,35 @@
 import * as React from 'react'
 import './artWorks.scss'
 
-const images2D = [
-    require('../images/2d01.jpg'),
-    require('../images/2d02.jpg'),
-    require('../images/2d03.jpg'),
-    require('../images/2d04.jpg'),
-]
+import image2d01 from '../images/2d01.jpg'
+import image2d02 from '../images/2d02.jpg'
+import image2d03 from '../images/2d03.jpg'
+import image2d04 from '../images/2d04.jpg'
+
+import image3d01 from '../images/3d01.jpg'
+import image3d02 from '../images/3d02.jpg'
+import image3d03 from '../images/3d03.jpg'
+import image3d04 from '../images/3d04.jpg'
+import image3d05 from '../images/3d05.jpg'
+import image3d06 from '../images/3d06.jpg'
+import image3d07 from '../images/3d07.png'
+import image3d08 from '../images/3d08.png'
+import image3d09 from '../images/3d09.png'
+import image3d10 from '../images/3d10.png'
+
+const images2D = [image2d01, image2d02, image2d03, image2d04]
 
 const images3D = [
-    require('../images/3d01.jpg'),
-    require('../images/3d02.jpg'),
-    require('../images/3d03.jpg'),
-    require('../images/3d04.jpg'),
-    require('../images/3d05.jpg'),
-    require('../images/3d06.jpg'),
-    require('../images/3d07.png'),
-    require('../images/3d08.png'),
-    require('../images/3d09.png'),
-    require('../images/3d10.png'),
+    image3d01,
+    image3d02,
+    image3d03,
+    image3d04,
+    image3d05,
+    image3d06,
+    image3d07,
+    image3d08,
+    image3d09,
+    image3d10,
 ]
 
 const ArtWorks = () => {

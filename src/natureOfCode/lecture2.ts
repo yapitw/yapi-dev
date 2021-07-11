@@ -269,7 +269,7 @@ export const lecture2_3 = (s: p5) => {
 
         const wind = s.createVector(0.2, 0)
 
-        for (let mover of movers) {
+        for (const mover of movers) {
             if (s.mouseIsPressed) {
                 mover.applyForce(wind)
             }
@@ -305,7 +305,7 @@ export const lecture2_4 = (s: p5) => {
             this.mass = mass
         }
 
-        drag(c) {
+        drag(c: number) {
             const { s } = this
             // Direction of Drag
             const drag = this.vel.copy()
@@ -378,7 +378,7 @@ export const lecture2_4 = (s: p5) => {
 
         const wind = s.createVector(0.2, 0)
 
-        for (let mover of movers) {
+        for (const mover of movers) {
             if (s.mouseIsPressed) {
                 mover.applyForce(wind)
             }

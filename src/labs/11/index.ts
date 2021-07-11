@@ -1,7 +1,7 @@
 import P5 from 'p5'
 
 export const sketch = (s: P5) => {
-    let creatures: Creature[] = []
+    const creatures: Creature[] = []
     const margin = 50
     const maxLife = 500
     let amount: number
@@ -32,7 +32,7 @@ export const sketch = (s: P5) => {
         cvs2.background(0, 5)
         cvs2.pop()
         cvs2.blendMode(s.LIGHTEST)
-        for (let creature of creatures) {
+        for (const creature of creatures) {
             creature.update()
             creature.draw()
         }
@@ -55,7 +55,12 @@ export const sketch = (s: P5) => {
         constructor() {
             this.maxSize = 3
             this.life = s.random(Math.round(maxLife / 3), maxLife)
-            this.init()
+            this.age = 0
+            this.alpha = 0
+            this.size = 0
+            this.p = s.createVector(s.random(-margin, s.width + margin), s.random(-margin, s.height + margin))
+            this.v = s.createVector()
+            this.color = s.color(s.random(colorList))
         }
 
         init() {
@@ -120,10 +125,10 @@ export const sketch = (s: P5) => {
 export class Lab11 {
     static title = 'Hex Runner'
     static tags = 'p5js'
-    static description = `Practice of p5.js generative animation`
+    static description = 'Practice of p5.js generative animation'
 
     instance: P5
-    playing: boolean = true
+    playing = true
     constructor(element: HTMLElement) {
         this.instance = new P5(sketch, element)
     }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import p5 from 'p5'
 import { RouteComponentProps } from 'react-router'
-import * as sketches from '../natureOfCode'
+import sketches from '../natureOfCode'
 import { NavLink } from 'react-router-dom'
 import { CANVAS_SIZE } from '../natureOfCode/configs'
 
@@ -15,10 +15,12 @@ const Lecture: React.FC<RouteComponentProps<{ lecture: string }>> = (props) => {
     const currentIndex = list.findIndex((key) => key === lecture)
 
     React.useEffect(() => {
-        const sketch = sketches[lecture]
-        const processing = new p5(sketch, canvasElem.current)
-        setTitle(sketch.title)
-        return () => processing.remove()
+        if (canvasElem.current) {
+            const sketch = sketches[lecture]
+            const processing = new p5(sketch, canvasElem.current)
+            setTitle(sketch.title)
+            return () => processing.remove()
+        }
     }, [lecture, canvasElem])
 
     return (
@@ -30,13 +32,21 @@ const Lecture: React.FC<RouteComponentProps<{ lecture: string }>> = (props) => {
             </div>
             <p>
                 <span>Practice according to </span>
-                <a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM" target="_blank">
+                <a
+                    href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZV4yEcW3uDwOgGXKUUsPOM"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     The Nature of Code 2
                 </a>
             </p>
             <p>
                 <span>Source code: </span>
-                <a target="_blank" href="https://github.com/yapitw/yapi-graphics/tree/master/src/natureOfCode">
+                <a
+                    target="_blank"
+                    href="https://github.com/yapitw/yapi-graphics/tree/master/src/natureOfCode"
+                    rel="noreferrer"
+                >
                     GitHub
                 </a>
             </p>

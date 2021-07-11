@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Switch, NavLink, Route, Redirect } from 'react-router-dom'
-import * as labs from '../labs'
-import * as sketches from '../natureOfCode'
+import { Switch, NavLink, Route } from 'react-router-dom'
+import labs from '../labs'
+import sketches from '../natureOfCode'
 
-const MenuList = () => {
+const MenuList: React.FC = () => {
     return (
         <React.Fragment>
             <Switch>

@@ -1,5 +1,8 @@
 import * as THREE from 'three'
 import { ThreeLab } from '../template'
+import vertexShader from './shaderVertex.glsl?raw'
+import fragmentShader from './shaderFragment.glsl?raw'
+
 export class Lab0 extends ThreeLab {
     static title = 'GLSL Texture'
     static tags = 'glsl three.js'
@@ -32,19 +35,19 @@ export class Lab0 extends ThreeLab {
             u_mouse: { type: 'v2', value: new THREE.Vector2() },
         }
 
-        var material = new THREE.ShaderMaterial({
+        const material = new THREE.ShaderMaterial({
             uniforms: this.uniforms,
-            vertexShader: require('./shaderVertex.glsl'),
-            fragmentShader: require('./shaderFragment.glsl'),
+            vertexShader,
+            fragmentShader,
         })
 
-        var mesh = new THREE.Mesh(geometry, material)
+        const mesh = new THREE.Mesh(geometry, material)
         scene.add(mesh)
     }
     animation = () => {
         if (!this.playing) return
         const { scene, camera, renderer } = this
-        this.uniforms.u_time.value += 1
+        if (this.uniforms.u_time) this.uniforms.u_time.value += 1
         renderer.render(scene, camera)
         if (!this.terminated) requestAnimationFrame(this.animation)
     }

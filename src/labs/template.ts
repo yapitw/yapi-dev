@@ -12,13 +12,13 @@ export class ThreeLab {
     camera: THREE.OrthographicCamera
     scene: THREE.Scene
     renderer: THREE.WebGLRenderer
-    canvas: HTMLCanvasElement
-    pixelRatio: number = 1
-    renderSize: number = 512
-    uniforms: IUniforms
-    terminated: boolean = false
-    playing: boolean = true
-    animation: () => void
+    canvas: HTMLCanvasElement | null = null
+    pixelRatio = 1
+    renderSize = 512
+    uniforms: IUniforms = {}
+    terminated = false
+    playing = true
+    animation: () => void = () => undefined
 
     constructor(container: HTMLDivElement) {
         this.container = container
@@ -28,11 +28,11 @@ export class ThreeLab {
         this.container.appendChild(this.renderer.domElement)
     }
 
-    pause = () => {
+    pause = (): void => {
         if (!this.playing) return
         this.playing = false
     }
-    resume = () => {
+    resume = (): void => {
         if (this.playing) return
         this.playing = true
         this.animation()
@@ -40,17 +40,19 @@ export class ThreeLab {
 }
 
 export class P5Lab {
-    playing: boolean = true
-    update: () => void
+    playing = true
+    update: () => void = () => undefined
 
-    pause = () => {
-        if (!this.playing) return
-        this.playing = false
+    pause = (): void => {
+        if (this.playing) {
+            this.playing = false
+        }
     }
 
-    resume = () => {
-        if (this.playing) return
-        this.playing = true
-        this.update()
+    resume = (): void => {
+        if (!this.playing) {
+            this.playing = true
+            this.update()
+        }
     }
 }

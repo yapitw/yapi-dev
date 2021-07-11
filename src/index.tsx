@@ -5,6 +5,7 @@ import { HashRouter, Route } from 'react-router-dom'
 import MenuList from './components/MenuList'
 import Navigator from './components/Navigator'
 import Routes from './components/Routes'
+import './style.scss'
 
 const App: React.FC = () => {
     const [isMenuShow, setIsMenuShow] = React.useState(false)

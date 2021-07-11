@@ -14,7 +14,7 @@ const Routes = () => {
     } = history
 
     React.useEffect(() => {
-        document.getElementById('top-anchor').scrollIntoView()
+        document.getElementById('top-anchor')?.scrollIntoView()
     }, [pathname])
     return (
         <Switch>

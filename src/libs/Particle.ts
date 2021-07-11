@@ -82,10 +82,10 @@ interface ILimit {
 }
 
 export class ParticleSystem {
-    animationRequestID: number
-    particles: Particle[]
-    time: number
-    MAXIMUM: number
+    animationRequestID = 0
+    particles: Particle[] = []
+    time = 0
+    MAXIMUM = 0
     limit: ILimit = {
         x_min: 0,
         y_min: 0,

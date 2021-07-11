@@ -1,15 +1,16 @@
 import * as React from 'react'
-import * as labs from '../labs'
+import labs from '../labs'
 import { ThreeLab } from '../labs/template'
 
 const ThreeContainer: React.FC<{ id: string }> = (props) => {
     const { id } = props
+
     const containerElem = React.useRef<HTMLDivElement>(null)
 
     const lab = React.useRef<ThreeLab | undefined>()
 
     React.useEffect(() => {
-        if (id === undefined) return () => {}
+        if (id === undefined) return () => undefined
         const newLab = new labs[id](containerElem.current)
         lab.current = newLab
         return () => {
@@ -18,7 +19,7 @@ const ThreeContainer: React.FC<{ id: string }> = (props) => {
         }
     }, [id])
 
-    const { title, description, tags } = (labs[id] || {}) as labs.ILab
+    const { title, description, tags } = labs[id] || {}
 
     if (!id) {
         return null
@@ -29,7 +30,7 @@ const ThreeContainer: React.FC<{ id: string }> = (props) => {
                 <h1>{title}</h1>
                 {tags && (
                     <p>
-                        {tags.split(' ').map((tag, index) => (
+                        {tags.split(' ').map((tag: string, index: number) => (
                             <span key={index}>#{tag} </span>
                         ))}
                     </p>
@@ -47,7 +48,7 @@ const ThreeContainer: React.FC<{ id: string }> = (props) => {
             )}
             <p>
                 <span>Source code: </span>
-                <a target="_blank" href="https://github.com/yapitw/yapi-graphics/tree/master/src/labs">
+                <a target="_blank" href="https://github.com/yapitw/yapi-graphics/tree/master/src/labs" rel="noreferrer">
                     GitHub
                 </a>
             </p>

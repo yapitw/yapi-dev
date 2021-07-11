@@ -25,7 +25,7 @@ lecture0_3.title = 'Perlin Noise'
 
 export const lecture0_4 = (s: p5) => {
     let start = 0
-    let increment = 0.01
+    const increment = 0.01
 
     s.setup = () => {
         s.createCanvas(CANVAS_SIZE, CANVAS_SIZE)
@@ -138,18 +138,18 @@ export const lecture0_7 = (s: p5) => {
         const r = Math.floor(s.random(4))
 
         switch (r) {
-            case 0:
-                x++
-                break
-            case 1:
-                x--
-                break
-            case 2:
-                y++
-                break
-            case 3:
-                y--
-                break
+        case 0:
+            x++
+            break
+        case 1:
+            x--
+            break
+        case 2:
+            y++
+            break
+        case 3:
+            y--
+            break
         }
         s.point(x, y)
     }

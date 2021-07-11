@@ -1,3 +1,5 @@
+// eslint-disable-file
+// @ts-nocheck
 export default class PerlinNoise {
     PERLIN_YWRAPB: number
     PERLIN_YWRAP: number
@@ -38,7 +40,7 @@ export default class PerlinNoise {
 
         if (this.perlin == null) {
             this.perlin = new Array(PERLIN_SIZE + 1)
-            for (var i = 0; i < PERLIN_SIZE + 1; i++) {
+            for (let i = 0; i < PERLIN_SIZE + 1; i++) {
                 this.perlin[i] = Math.random()
             }
         }
@@ -53,21 +55,21 @@ export default class PerlinNoise {
             z = -z
         }
 
-        var xi = Math.floor(x),
+        let xi = Math.floor(x),
             yi = Math.floor(y),
             zi = Math.floor(z)
-        var xf = x - xi
-        var yf = y - yi
-        var zf = z - zi
-        var rxf, ryf
+        let xf = x - xi
+        let yf = y - yi
+        let zf = z - zi
+        let rxf, ryf
 
-        var r = 0
-        var ampl = 0.5
+        let r = 0
+        let ampl = 0.5
 
-        var n1, n2, n3
+        let n1, n2, n3
 
-        for (var o = 0; o < perlin_octaves; o++) {
-            var of = xi + (yi << PERLIN_YWRAPB) + (zi << PERLIN_ZWRAPB)
+        for (let o = 0; o < perlin_octaves; o++) {
+            let of = xi + (yi << PERLIN_YWRAPB) + (zi << PERLIN_ZWRAPB)
 
             rxf = scaled_cosine(xf)
             ryf = scaled_cosine(yf)
@@ -125,16 +127,16 @@ export default class PerlinNoise {
         const { PERLIN_SIZE } = this
         // Linear Congruential Generator
         // Variant of a Lehman Generator
-        var lcg = (function () {
+        const lcg = (function () {
             // Set to values from http://en.wikipedia.org/wiki/Numerical_Recipes
             // m is basically chosen to be large (as it is the max period)
             // and for its relationships to a and c
-            var m = 4294967296
+            const m = 4294967296
             // a - 1 should be divisible by m's prime factors
-            var a = 1664525
+            const a = 1664525
             // c and m should be co-prime
-            var c = 1013904223
-            var seed, z
+            const c = 1013904223
+            let seed, z
             return {
                 setSeed: function (val) {
                     // pick a random seed if val is undefined or null
@@ -156,7 +158,7 @@ export default class PerlinNoise {
 
         lcg.setSeed(seed)
         this.perlin = new Array(PERLIN_SIZE + 1)
-        for (var i = 0; i < PERLIN_SIZE + 1; i++) {
+        for (let i = 0; i < PERLIN_SIZE + 1; i++) {
             this.perlin[i] = lcg.rand()
         }
     }

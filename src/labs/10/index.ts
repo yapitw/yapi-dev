@@ -1,8 +1,8 @@
 import P5 from 'p5'
 
-export const sketch = (s: P5) => {
-    let centerPoint
-    let screenCenter
+export const sketch = (s: P5): void => {
+    let centerPoint: P5.Vector
+    let screenCenter: P5.Vector
     s.setup = () => {
         s.createCanvas(500, 500)
         s.background(100)
@@ -34,7 +34,7 @@ export const sketch = (s: P5) => {
 
         for (let i = 0; i < feats * 2; i++) {
             const radian = s.radians((360 / (feats * 2)) * i - 90)
-            let newPoint = s.createVector(centerPoint.x, centerPoint.y)
+            const newPoint = s.createVector(centerPoint.x, centerPoint.y)
             const mousePoint = s.createVector(mouseX, mouseY)
 
             if (i % 2 === 0) {
@@ -62,7 +62,7 @@ export const sketch = (s: P5) => {
         s.fill(charColor)
         s.strokeWeight(2)
         s.beginShape()
-        for (let point of points) {
+        for (const point of points) {
             s.curveVertex(point.x, point.y)
         }
         for (let i = 0; i < 3; i++) {
@@ -91,18 +91,18 @@ export const sketch = (s: P5) => {
 export class Lab10 {
     static title = 'Little Creature'
     static tags = 'p5js interaction creativeCoding'
-    static description = `A simple interactive toy for children. Practice of p5.js interaction control`
+    static description = 'A simple interactive toy for children. Practice of p5.js interaction control'
 
     container: HTMLElement
     instance: P5
-    playing: boolean = true
+    playing = true
     constructor(element: HTMLElement) {
         this.instance = new P5(sketch, element)
         this.container = element
         this.container.addEventListener('touchmove', this.preventScroll)
     }
-    preventScroll = (e) => e.preventDefault()
-    destroy = () => {
+    preventScroll = (e: Event): void => e.preventDefault()
+    destroy = (): void => {
         this.container.addEventListener('touchmove', this.preventScroll)
         this.instance.remove()
     }
