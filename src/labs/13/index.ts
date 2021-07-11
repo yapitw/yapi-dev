@@ -9,7 +9,7 @@ export class Lab13 {
     constructor(element: HTMLElement) {
         this.container = element
         this.iframe = document.createElement('iframe')
-        this.iframe.src = 'https://learn-threejs-journey.vercel.app/27AnimatedGalaxy/index.html'
+        this.iframe.src = 'https://yapi-learn-threejs.vercel.app/27AnimatedGalaxy/index.html'
         this.iframe.width ='100%'
         this.iframe.height ='100%'
         this.iframe.style.position = 'absolute'
