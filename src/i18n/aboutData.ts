@@ -157,7 +157,7 @@ export const careerDataZh: {
     contents: string[]
 }[] = [
     {
-        title: 'Screening Eagle Dreamlab - 前端工程師',
+        title: 'Screening Eagle Dreamlab 前端工程師',
         period: '2020 五月入職, 在職期間 1 年',
         contents: [
             '維護後台介面，主要技術術為 TypeScript, React',
@@ -168,7 +168,7 @@ export const careerDataZh: {
     },
 
     {
-        title: 'United Overseas Bank Limited (UOB) - 前端工程師 (Optimum solutions 派遣)',
+        title: 'United Overseas Bank Limited (UOB) 前端工程師 (Optimum solutions 派遣)',
         period: '2019 年九月入職, 在職期間 8 個月',
         contents: [
             '維護信用卡申請介面的網頁應用程式(主要技術 React)',
@@ -179,7 +179,7 @@ export const careerDataZh: {
         ],
     },
     {
-        title: 'Orion Consultancy - 前端工程師',
+        title: 'Orion Consultancy 前端工程師',
         period: '2018 五月入職, 在職期間 1 年 4 個月',
         contents: [
             '開發網頁應用程式介面(主要技術 React)',
@@ -189,7 +189,7 @@ export const careerDataZh: {
         ],
     },
     {
-        title: '十八設計有限公司 - 前端工程師',
+        title: '十八設計有限公司 前端工程師',
         period: '2017 年入職, 在職期間 1 年',
         contents: [
             '研究可行的前端解決方案並與設計師、專案經理及後端工程師討論溝通未來執行方式',
@@ -198,11 +198,11 @@ export const careerDataZh: {
             '前端專案開發(HTML CSS Javascript)',
             'HTML/JS 活動頁小遊戲開發',
             '撰寫 CSS, SVG 動態角本',
-            '版本控制： TortoiseHG.',
+            '使用 TortoiseHG 控管程式版本',
         ],
     },
     {
-        title: 'trii collection - 共同創立工作室並參與設計研發',
+        title: 'trii collection 共同創立工作室並參與設計研發',
         period: '2014 年創立, 參與期間 3 年',
         contents: [
             '共同創立，研究產品發展方向並參與設計',

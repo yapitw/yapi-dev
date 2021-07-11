@@ -71,13 +71,13 @@ const About: React.FC = () => {
                 <h1 className="first-title">{formatMessage({ id: 'coreSkills' })}</h1>
                 <h3 className="subtitle">{formatMessage({ id: 'coreSkills.frontend' })}</h3>
                 <ul>
-                    {new Array(7).fill('').map((_, index) => {
+                    {new Array(6).fill('').map((_, index) => {
                         return <li key={index}>{formatMessage({ id: `coreSkills.frontend.${index + 1}` })}</li>
                     })}
                 </ul>
                 <h3 className="subtitle">{formatMessage({ id: 'coreSkills.computerGraphics' })}</h3>
                 <ul>
-                    {new Array(1).fill('').map((_, index) => {
+                    {new Array(2).fill('').map((_, index) => {
                         return <li key={index}>{formatMessage({ id: `coreSkills.computerGraphics.${index + 1}` })}</li>
                     })}
                 </ul>
