@@ -5,11 +5,11 @@ import { HashRouter, Route } from 'react-router-dom'
 import MenuList from './components/MenuList'
 import Navigator from './components/Navigator'
 import Routes from './components/Routes'
+import I18nProvider from './i18n/Provider'
 import './style.scss'
 
 const App: React.FC = () => {
     const [isMenuShow, setIsMenuShow] = React.useState(false)
-
     return (
         <HashRouter hashType="noslash">
             <div className="app">
@@ -37,4 +37,9 @@ const App: React.FC = () => {
     )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+    <I18nProvider>
+        <App />
+    </I18nProvider>,
+    document.getElementById('root')
+)

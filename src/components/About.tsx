@@ -1,13 +1,20 @@
 import * as React from 'react'
+import { useIntl } from 'react-intl'
 import './about.scss'
-import { careerData, skillsData } from './aboutData'
+import { careerData, skillsData } from '../i18n/aboutData'
 
 const About: React.FC = () => {
+    const intl = useIntl()
+    const formatMessage = intl.formatMessage
+
+    const skillSet = JSON.parse(formatMessage({ id: 'skillSet' })) as typeof skillsData
+    const careerSet = JSON.parse(formatMessage({ id: 'careerData' })) as typeof careerData
+
     const skills = (
         <>
-            <h1 className="first-title">Tools I use</h1>
+            <h1 className="first-title">{formatMessage({ id: 'toolsIUse' })}</h1>
             <div style={{ columnCount: 2, columnGap: '2rem' }}>
-                {skillsData.map((skill, index) => (
+                {skillSet.map((skill, index) => (
                     <section key={index}>
                         <h3 className="subtitle">{skill.title}</h3>
                         <p>{skill.content}</p>
@@ -22,21 +29,22 @@ const About: React.FC = () => {
             <section className="primary">
                 <h1>Pattison Ho</h1>
                 <h3>何俊憙 (Ho Chun Hsi)</h3>
-                <h3>Front-end developer with design background and visualization techniques.</h3>
+                <h3>{formatMessage({ id: 'header.description' })}</h3>
                 <p className="print-remarks">
                     This document is printed from <a href={location.origin}>{location.origin}</a>, see more my works
                     here.
                 </p>
 
                 <h3 className="subtitle" style={{ marginTop: '1rem' }}>
-                    Language:{' '}
+                    {formatMessage({ id: 'language' })}
+                    {': '}
                 </h3>
                 <ul>
-                    <li>Chinese: Native speaker</li>
-                    <li>English: Communication level</li>
+                    <li>{formatMessage({ id: 'language.zh' })}</li>
+                    <li>{formatMessage({ id: 'language.en' })}</li>
                 </ul>
 
-                <h3 className="subtitle">Contacts</h3>
+                <h3 className="subtitle">{formatMessage({ id: 'contacts' })}</h3>
                 <ul>
                     <li>
                         E-mail:{' '}
@@ -60,28 +68,26 @@ const About: React.FC = () => {
             </section>
 
             <section className="primary">
-                <h1 className="first-title">Core skills</h1>
-                <h3 className="subtitle">Front-end Development</h3>
+                <h1 className="first-title">{formatMessage({ id: 'coreSkills' })}</h1>
+                <h3 className="subtitle">{formatMessage({ id: 'coreSkills.frontend' })}</h3>
                 <ul>
-                    <li>Build front-end projects from scratch.</li>
-                    <li>Integration of web APIs and services including AWS, FB SDK and GCP ...etc.</li>
-                    <li>Good communication with designer and product manager.</li>
-                    <li>Advanced CSS styles implementation.</li>
-                    <li>Progressive graphics coding.</li>
-                    <li>3D Computer graphics fundamental.</li>
-                    <li>Back-end development (Node.js).</li>
+                    {new Array(7).fill('').map((_, index) => {
+                        return <li key={index}>{formatMessage({ id: `coreSkills.frontend.${index + 1}` })}</li>
+                    })}
                 </ul>
-                <h3 className="subtitle">Computer Graphics</h3>
+                <h3 className="subtitle">{formatMessage({ id: 'coreSkills.computerGraphics' })}</h3>
                 <ul>
-                    <li>3D progressive modeling, 3D sculpting.</li>
+                    {new Array(1).fill('').map((_, index) => {
+                        return <li key={index}>{formatMessage({ id: `coreSkills.computerGraphics.${index + 1}` })}</li>
+                    })}
                 </ul>
             </section>
 
             <section className="no-print">{skills}</section>
 
             <section className="primary">
-                <h1>Career Summary</h1>
-                {careerData.map((role, index) => (
+                <h1>{formatMessage({ id: 'careerSummary' })}</h1>
+                {careerSet.map((role, index) => (
                     <section key={index}>
                         <h3 className="subtitle">
                             {role.title} - {role.period}
@@ -96,17 +102,14 @@ const About: React.FC = () => {
             </section>
             <section className="primary">
                 <h1 className="first-title" id="education">
-                    Education
+                    {formatMessage({ id: 'education' })}
                 </h1>
-                <h3 className="subtitle">Self learning</h3>
-                <p>
-                    Learning front-end programming skills and 3D softwares from several online sources like Udemy,
-                    Udacity, Codecademy, Hahow, Hiskio, Youtube ...ETC.
-                </p>
-                <h3 className="subtitle">Advanced Javascript front-end engineering course</h3>
-                <p>Information System Training Program from National Taiwan University.</p>
-                <h3 className="subtitle">Industrial Design Bachelor degree</h3>
-                <p>National Taipei University of Technology.</p>
+                <h3 className="subtitle">{formatMessage({ id: 'selfLearning' })}</h3>
+                <p>{formatMessage({ id: 'selfLearning.description' })}</p>
+                <h3 className="subtitle">{formatMessage({ id: 'education.1' })}</h3>
+                <p>{formatMessage({ id: 'education.1.description' })}</p>
+                <h3 className="subtitle">{formatMessage({ id: 'education.2' })}</h3>
+                <p>{formatMessage({ id: 'education.2.description' })}</p>
             </section>
 
             <section className="only-print">{skills}</section>
