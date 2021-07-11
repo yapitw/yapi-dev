@@ -11,7 +11,7 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "private": true,
     "dependencies": {
         "p5": "^1.2.0",
         "query-string": "^7.0.1",
