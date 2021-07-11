@@ -10,7 +10,7 @@ const ThreeContainer: React.FC<{ id: string }> = (props) => {
     const lab = React.useRef<ThreeLab | undefined>()
 
     React.useEffect(() => {
-        if (id === undefined) return () => undefined
+        if (id === undefined || !containerElem.current) return () => undefined
         const newLab = new labs[id](containerElem.current)
         lab.current = newLab
         return () => {

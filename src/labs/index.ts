@@ -1,12 +1,3 @@
-class ILab {
-    title?: string
-    description?: string
-    tags?: string
-    constructor(HTMLElement: HTMLElement) {
-        return
-    }
-} 
-
 // export { Lab0 } from './0'
 // export { Lab1 } from './1'
 // export { Lab2 } from './2'
@@ -22,6 +13,13 @@ import { Lab11 } from './11'
 import { Lab12 } from './12'
 import { Lab13 } from './13'
 import { Lab14 } from './14'
+
+interface ILab {
+    new (elem: HTMLDivElement): any
+    title: string
+    description: string
+    tags: string
+}
 
 const libs: { [key: string]: ILab } = {
     Lab3,
