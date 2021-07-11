@@ -3,7 +3,7 @@ import { ThreeLab } from '../template'
 import vertexShader from './shaderVertex.glsl?raw'
 import fragmentShader from './shaderFragment.glsl?raw'
 
-const texture = new THREE.TextureLoader().load('dist/doodle.png')
+// const texture = new THREE.TextureLoader().load('dist/doodle.png')
 
 type IUniforms = {
     u_time?: { type: 'f'; value: number }
@@ -51,7 +51,7 @@ export class Lab3 extends ThreeLab {
             u_resolution: { type: 'v2', value: new THREE.Vector2() },
             u_mouse: { type: 'v2', value: new THREE.Vector2() },
             u_texture: { type: 't', value: new THREE.Texture() },
-            u_picture: { type: 't', value: texture },
+            // u_picture: { type: 't', value: texture },
         }
 
         const material = new THREE.ShaderMaterial({

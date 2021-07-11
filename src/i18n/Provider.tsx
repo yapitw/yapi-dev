@@ -9,7 +9,6 @@ const I18nProvider: React.FC = (props) => {
     const { children } = props
 
     const query = queryString.parse(location.search)
-    console.log({ query })
     const paramLang = query.lang as Languages
 
     const [locale, setLocale] = useState<Languages>(paramLang ?? 'en')
