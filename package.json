@@ -20,7 +20,7 @@
         "react-intl": "^5.20.4",
         "react-router-dom": "^5.2.0",
         "simplex-noise": "^2.4.0",
-        "three": "^0.130.1"
+        "three": "^0.137.0"
     },
     "devDependencies": {
         "@types/node": "^13.11.0",
