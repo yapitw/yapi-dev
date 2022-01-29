@@ -43,7 +43,7 @@ const ArtWorks = () => {
 
     return (
         <div className="art-works">
-            <h1 className="first-title">Art Works</h1>
+            <h1 className="first-title">Digital Art Works</h1>
             <p>For hobby. 2D paints are done with Photoshop. 3D models are done with Blender and ZBrush.</p>
             <section>
                 <h2>2D Painting</h2>

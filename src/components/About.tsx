@@ -27,9 +27,8 @@ const About: React.FC = () => {
     return (
         <div className="about two-column">
             <section className="primary">
-                <h1>Pattison Ho</h1>
-                <h3>何俊憙 (Ho Chun Hsi)</h3>
-                <h3>{formatMessage({ id: 'header.description' })}</h3>
+                <h1>Profile</h1>
+                <h3>Chun-Hsi Ho 何俊憙 (Pattison Ho), {formatMessage({ id: 'header.description' })}</h3>                
                 <p className="print-remarks">
                     This document is printed from <a href={location.origin}>{location.origin}</a>, see more my works
                     here.
@@ -83,7 +82,7 @@ const About: React.FC = () => {
                 </ul>
             </section>
 
-            <section className="no-print">{skills}</section>
+            {/* <section className="no-print">{skills}</section> */}
 
             <section className="primary">
                 <h1>{formatMessage({ id: 'careerSummary' })}</h1>

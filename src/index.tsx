@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import MenuList from './components/MenuList'
 import Navigator from './components/Navigator'
@@ -11,7 +11,7 @@ import './style.scss'
 const App: React.FC = () => {
     const [isMenuShow, setIsMenuShow] = React.useState(false)
     return (
-        <HashRouter hashType="noslash">
+        <BrowserRouter>
             <div className="app">
                 <Navigator />
                 <div className="app-body">
@@ -20,7 +20,6 @@ const App: React.FC = () => {
                         <Route path={['/exp/', '/noc/']}>
                             <div className={['menu-list', isMenuShow && 'menu-list--active'].filter(Boolean).join(' ')}>
                                 <div className="switch" onClick={() => setIsMenuShow(!isMenuShow)} />
-
                                 <div className="list-wrapper" onClick={() => setIsMenuShow(false)}>
                                     <MenuList />
                                 </div>
@@ -33,7 +32,7 @@ const App: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </HashRouter>
+        </BrowserRouter>
     )
 }
 

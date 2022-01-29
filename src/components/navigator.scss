@@ -1,21 +1,33 @@
 @import '../shared.scss';
 
-.tabs {
+.header {
+    font-size: 2rem;
+    font-weight: 300;
+
     .container {
         display: flex;
+        justify-content: space-between;
+        padding: $padding-size;
+        border-bottom: 1px solid currentColor;
+    }
+
+    .name {
+        font-weight: 500;
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
-        border-bottom: 1px solid currentColor;
-        width: 100%;
         height: fit-content;
-        padding: $padding-size;
+        margin: 0;
+        margin-left: auto;
     }
 
     a {
-        font-size: 2rem;
         margin-right: 0.5rem;
         padding: 0 0.5rem;
-        font-weight: 300;
         text-decoration: none;
         text-transform: uppercase;
     }

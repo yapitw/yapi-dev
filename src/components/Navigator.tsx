@@ -2,31 +2,47 @@ import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import './navigator.scss'
 
-const Navigator = () => {
+const links = [
+    {
+        title: 'About',
+        route: '/about',
+    },
+    {
+        title: 'Web',
+        route: '/web',
+    },
+    {
+        title: 'Graphics',
+        route: '/exp/',
+        hidden: true,
+    },
+    {
+        title: 'Natural of code',
+        route: '/noc/',
+        hidden: true,
+    },
+    {
+        title: 'Digital Art',
+        route: '/art',
+    },
+]
+
+const Navigator: React.FC = () => {
     return (
-        <div className="tabs">
+        <div className="header">
             <div className="container">
-                <NavLink activeClassName="active-link" to="/about">
-                    About
-                </NavLink>
-                <div className="splitter" />
-                <h4>Works:</h4>
-                <NavLink activeClassName="active-link" to="/web">
-                    Web
-                </NavLink>
-                <div className="splitter" />
-                <h4>Studies:</h4>
-                <NavLink activeClassName="active-link" to="/exp/">
-                    Graphics
-                </NavLink>
-                <h4 className="pipe">|</h4>
-                <NavLink activeClassName="active-link" to="/noc/">
-                    Natural of code
-                </NavLink>
-                <h4 className="pipe">|</h4>
-                <NavLink activeClassName="active-link" to="/art">
-                    Art
-                </NavLink>
+
+                <div className="name">CHUN-HSI HO</div>
+                <div className="tabs">
+                    {links.map((link, i) => { return link.hidden ? null :(
+                        <React.Fragment key={link.route}>
+                            {i!==0 &&<h4 className="pipe">|</h4>}
+                            <NavLink activeClassName="active-link" to={link.route}>
+                                {link.title}
+                            </NavLink>
+                        </React.Fragment>
+                    )})}
+                </div>
             </div>
         </div>
     )
