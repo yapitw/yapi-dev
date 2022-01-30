@@ -1,10 +1,10 @@
 import React from 'react'
 import labs from '../labs'
-import { NavLink, RouteChildrenProps, useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import ThreeContainer from './ThreeContainer'
 import './experiments.scss'
 
-const Experiments: React.FC<RouteChildrenProps<{ id: string }>> = () => {
+const Experiments: React.FC = () => {
     const { id } = useParams<{ id: string }>()
     const list = Object.keys(labs)
 

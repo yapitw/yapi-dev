@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Switch, Route, Redirect, useHistory } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 
 import About from './About'
 import NatureOfCode from './NatureOfCode'
@@ -7,36 +7,26 @@ import WebWorks from './WebWorks'
 import ArtWorks from './ArtWorks'
 import Experiments from './Experiments'
 
-const Routes = () => {
-    const history = useHistory()
-    const {
-        location: { pathname },
-    } = history
+const AppRoutes: React.FC = () => {
+    const location = useLocation()
+    const { pathname } = location
 
     React.useEffect(() => {
         document.getElementById('top-anchor')?.scrollIntoView()
     }, [pathname])
     return (
-        <Switch>
-            <Route path="/about" component={About} />
-            <Route path="/web" component={WebWorks} />
-            <Route path="/art" component={ArtWorks} />
-            <Route path="/exp/:id" component={Experiments} />
-            <Route path={'/noc/:lecture'} component={NatureOfCode} />
+        <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/web" element={<WebWorks />} />
+            <Route path="/art" element={<ArtWorks />} />
+            <Route path="/exp/:id" element={<Experiments />} />
+            <Route path={'/noc/:lecture'} element={<NatureOfCode />} />
 
-            <Route path={'/exp/'}>
-                <Redirect to="/exp/Lab14" />
-            </Route>
-
-            <Route path={'/noc/'}>
-                <Redirect to="/noc/lecture1_7" />
-            </Route>
-
-            <Route path={'/'}>
-                <Redirect to="/about" />
-            </Route>
-        </Switch>
+            <Route path={'/exp/'} element={<Navigate to="/exp/Lab14" />} />
+            <Route path={'/noc/'} element={<Navigate to="/noc/lecture1_7" />} />
+            <Route path={'/'} element={<Navigate to="/about" />} />
+        </Routes>
     )
 }
 
-export default Routes
+export default AppRoutes

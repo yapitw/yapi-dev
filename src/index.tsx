@@ -1,10 +1,10 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import MenuList from './components/MenuList'
 import Navigator from './components/Navigator'
-import Routes from './components/Routes'
+import AppRoutes from './components/Routes'
 import I18nProvider from './i18n/Provider'
 import './style.scss'
 
@@ -17,17 +17,26 @@ const App: React.FC = () => {
                 <div className="app-body">
                     <div className="container">
                         <div id="top-anchor" />
-                        <Route path={['/exp/', '/noc/']}>
-                            <div className={['menu-list', isMenuShow && 'menu-list--active'].filter(Boolean).join(' ')}>
-                                <div className="switch" onClick={() => setIsMenuShow(!isMenuShow)} />
-                                <div className="list-wrapper" onClick={() => setIsMenuShow(false)}>
-                                    <MenuList />
-                                </div>
-                            </div>
-                        </Route>
+                        <Routes>
+                            <Route
+                                path={'/exp/'}
+                                element={
+                                    <div
+                                        className={['menu-list', isMenuShow && 'menu-list--active']
+                                            .filter(Boolean)
+                                            .join(' ')}
+                                    >
+                                        <div className="switch" onClick={() => setIsMenuShow(!isMenuShow)} />
+                                        <div className="list-wrapper" onClick={() => setIsMenuShow(false)}>
+                                            <MenuList />
+                                        </div>
+                                    </div>
+                                }
+                            ></Route>
+                        </Routes>
 
                         <div className="content">
-                            <Routes />
+                            <AppRoutes />
                         </div>
                     </div>
                 </div>

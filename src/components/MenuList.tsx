@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Switch, NavLink, Route } from 'react-router-dom'
+import { Routes, NavLink, Route } from 'react-router-dom'
 import labs from '../labs'
 import sketches from '../natureOfCode'
 
 const MenuList: React.FC = () => {
     return (
         <React.Fragment>
-            <Switch>
+            <Routes>
                 <Route path={'/exp/:id?'}>
                     {Object.keys(labs)
                         .reverse()
@@ -29,7 +29,7 @@ const MenuList: React.FC = () => {
                             </NavLink>
                         ))}
                 </Route>
-            </Switch>
+            </Routes>
         </React.Fragment>
     )
 }

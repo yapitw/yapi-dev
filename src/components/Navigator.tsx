@@ -37,7 +37,7 @@ const Navigator: React.FC = () => {
                     {links.map((link, i) => { return link.hidden ? null :(
                         <React.Fragment key={link.route}>
                             {i!==0 &&<h4 className="pipe">|</h4>}
-                            <NavLink activeClassName="active-link" to={link.route}>
+                            <NavLink className={({isActive})=> isActive ? 'active-link' : ''} to={link.route}>
                                 {link.title}
                             </NavLink>
                         </React.Fragment>

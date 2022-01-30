@@ -1,12 +1,12 @@
 import * as React from 'react'
 import p5 from 'p5'
-import { RouteComponentProps } from 'react-router'
 import sketches from '../natureOfCode'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { CANVAS_SIZE } from '../natureOfCode/configs'
 
-const Lecture: React.FC<RouteComponentProps<{ lecture: string }>> = (props) => {
-    const lecture = props.match.params.lecture
+const Lecture: React.FC = () => {
+    const params = useParams<{lecture: string}>()
+    const lecture = params.lecture ?? ''
     const canvasElem = React.useRef<HTMLDivElement>(null)
 
     const [title, setTitle] = React.useState('')
