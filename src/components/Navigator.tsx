@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './navigator.scss'
 
 const links = [
@@ -31,17 +31,20 @@ const Navigator: React.FC = () => {
     return (
         <div className="header">
             <div className="container">
-
-                <div className="name">CHUN-HSI HO</div>
+                <Link className="name" to="/">
+                    CHUN-HSI HO
+                </Link>
                 <div className="tabs">
-                    {links.map((link, i) => { return link.hidden ? null :(
-                        <React.Fragment key={link.route}>
-                            {i!==0 &&<h4 className="pipe">|</h4>}
-                            <NavLink className={({isActive})=> isActive ? 'active-link' : ''} to={link.route}>
-                                {link.title}
-                            </NavLink>
-                        </React.Fragment>
-                    )})}
+                    {links.map((link, i) => {
+                        return link.hidden ? null : (
+                            <React.Fragment key={link.route}>
+                                {i !== 0 && <h4 className="pipe">|</h4>}
+                                <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={link.route}>
+                                    {link.title}
+                                </NavLink>
+                            </React.Fragment>
+                        )
+                    })}
                 </div>
             </div>
         </div>

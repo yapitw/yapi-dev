@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap');
 @import './shared.scss';
 
 html,
@@ -10,6 +10,10 @@ body {
     height: 100%;
     font-family: roboto, Arial, Helvetica, sans-serif;
     font-size: 14px;
+    color: #151515;
+    @media print {
+        color: black;
+    }
 }
 
 a {
@@ -34,6 +38,7 @@ h5 {
     margin: 0;
     padding: 0;
     letter-spacing: -0.04em;
+    font-weight: 400;
 }
 
 h1 {
@@ -47,7 +52,6 @@ h2 {
 }
 h3 {
     font-size: 1.5rem;
-    font-weight: 500;
 }
 h4 {
     font-size: 1.2rem;

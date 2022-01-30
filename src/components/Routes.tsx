@@ -6,6 +6,7 @@ import NatureOfCode from './NatureOfCode'
 import WebWorks from './WebWorks'
 import ArtWorks from './ArtWorks'
 import Experiments from './Experiments'
+import Home from './Home'
 
 const AppRoutes: React.FC = () => {
     const location = useLocation()
@@ -16,6 +17,7 @@ const AppRoutes: React.FC = () => {
     }, [pathname])
     return (
         <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/web" element={<WebWorks />} />
             <Route path="/art" element={<ArtWorks />} />
@@ -24,7 +26,6 @@ const AppRoutes: React.FC = () => {
 
             <Route path={'/exp/'} element={<Navigate to="/exp/Lab14" />} />
             <Route path={'/noc/'} element={<Navigate to="/noc/lecture1_7" />} />
-            <Route path={'/'} element={<Navigate to="/about" />} />
         </Routes>
     )
 }
