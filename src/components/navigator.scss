@@ -7,7 +7,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: $padding-size;
+        padding: $padding-size-y $padding-size-x;;
         border-bottom: 1px solid currentColor;
     }
 
