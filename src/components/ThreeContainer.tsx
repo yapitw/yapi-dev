@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Navigate } from 'react-router-dom'
 import labs from '../labs'
 import { ThreeLab } from '../labs/template'
 
@@ -21,8 +22,8 @@ const ThreeContainer: React.FC<{ id: string }> = (props) => {
 
     const { title, description, tags } = labs[id] || {}
 
-    if (!id) {
-        return null
+    if (!id || !labs[id]) {
+        return <Navigate to="./.." />
     }
     return (
         <React.Fragment>
