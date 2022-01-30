@@ -43,10 +43,13 @@ const ArtWorks = () => {
 
     return (
         <div className="art-works">
-            <h1 className="first-title">Digital Art Works</h1>
-            <p>For hobby. 2D paints are done with Photoshop. 3D models are done with Blender and ZBrush.</p>
             <section>
-                <h2>2D Painting</h2>
+                <h1 className="first-title">Digital Art Works</h1>
+                <p>For hobby. 2D paints are done with Photoshop. 3D models are done with Blender and ZBrush.</p>
+            </section>
+
+            <section>
+                <h1>2D Painting</h1>
                 <div className="three-column">
                     {images2D.map((image, index) => {
                         return <img key={index} src={image} onClick={() => setViewer(image)} alt="" />
@@ -54,7 +57,7 @@ const ArtWorks = () => {
                 </div>
             </section>
             <section>
-                <h2>3D Modeling</h2>
+                <h1>3D Modeling</h1>
                 <div className="three-column">
                     {images3D.map((image, index) => {
                         return <img key={index} src={image} onClick={() => setViewer(image)} alt="" />
