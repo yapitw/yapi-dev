@@ -1,22 +1,24 @@
 @import '../shared.scss';
 
 .header {
-    font-size: 2rem;
     font-weight: 300;
 
     .container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: $padding-size;
         border-bottom: 1px solid currentColor;
     }
 
     .name {
+        font-size: 2rem;
         font-weight: 700;
         padding: 0;
     }
 
     .tabs {
+        font-size: 1.5rem;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -33,7 +35,7 @@
         text-transform: uppercase;
     }
 
-    .active-link {
+    a.active-link {
         background-color: rgba(0, 0, 0, 0.1);
     }
 
@@ -57,11 +59,13 @@
     }
 
     @media screen and (max-width: $break-point) {
-        order: 1;
         .container {
-            border-bottom: none;
-            border-top: 1px solid currentColor;
             flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-start;
+        }
+        .tabs {
+            margin-left: 0;
         }
     }
 }
