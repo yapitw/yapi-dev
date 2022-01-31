@@ -2,7 +2,7 @@ import p5 from 'p5'
 import SimplexNoise from 'simplex-noise'
 import { CANVAS_SIZE } from './configs'
 
-export const lecture0_3 = (s: p5) => {
+export const lecture0_3 = (s: p5): void => {
     let offset1 = 200
     let offset2 = 10000
 
@@ -23,7 +23,7 @@ export const lecture0_3 = (s: p5) => {
 }
 lecture0_3.title = 'Perlin Noise'
 
-export const lecture0_4 = (s: p5) => {
+export const lecture0_4 = (s: p5): void => {
     let start = 0
     const increment = 0.01
 
@@ -54,9 +54,7 @@ export const lecture0_4 = (s: p5) => {
 }
 lecture0_4.title = 'Perlin Noise'
 
-export const lecture0_5 = (s: p5) => {
-    const inc = 0.01
-
+export const lecture0_5 = (s: p5): void => {
     s.setup = () => {
         s.createCanvas(CANVAS_SIZE, CANVAS_SIZE)
         s.pixelDensity(1)
@@ -84,7 +82,7 @@ export const lecture0_5 = (s: p5) => {
 }
 lecture0_5.title = '2D Perlin Noise'
 
-export const lecture0_6 = (s: p5) => {
+export const lecture0_6 = (s: p5): void => {
     // extend note:
     // worley noise
     // Étienne Jacob
@@ -121,7 +119,7 @@ export const lecture0_6 = (s: p5) => {
 }
 lecture0_6.title = 'Simplex Noise'
 
-export const lecture0_7 = (s: p5) => {
+export const lecture0_7 = (s: p5): void => {
     let x = 0
     let y = 0
     s.setup = () => {
@@ -138,18 +136,18 @@ export const lecture0_7 = (s: p5) => {
         const r = Math.floor(s.random(4))
 
         switch (r) {
-        case 0:
-            x++
-            break
-        case 1:
-            x--
-            break
-        case 2:
-            y++
-            break
-        case 3:
-            y--
-            break
+            case 0:
+                x++
+                break
+            case 1:
+                x--
+                break
+            case 2:
+                y++
+                break
+            case 3:
+                y--
+                break
         }
         s.point(x, y)
     }

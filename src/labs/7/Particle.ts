@@ -127,5 +127,5 @@ export class ParticleSystem {
         this.particles = this.particles.filter((particle) => !particle.kill)
     }
 
-    draw = (_: Particle): void => undefined
+    draw: (_particle: Particle) => void = () => undefined
 }

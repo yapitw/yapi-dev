@@ -32,7 +32,7 @@ const webWorkData: {
         contents: ['Entire page.', 'Use three.js webgl library simulating 3D ring with customized content.'],
     },
     {
-        title: 'Arc\'teryx NODIN',
+        title: "Arc'teryx NODIN",
         link: 'http://www.starlike.com.tw/ARC/NODIN/',
         image: img_arcteryx,
         contents: ['HTML CSS Layout slicing according to design.', 'CSS Animation.', 'JQuery interaction.'],
@@ -45,7 +45,7 @@ const webWorkData: {
     },
 ]
 
-const WebWorks = () => {
+const WebWorks: React.FC = () => {
     return (
         <>
             <h1 className="first-title">Web Works</h1>
@@ -62,7 +62,12 @@ const WebWorks = () => {
                                     {work.link}
                                 </a>
                                 {work.sourceCode && (
-                                    <a style={{ marginLeft: '1em' }} href={work.sourceCode} target="_blank" rel="noreferrer">
+                                    <a
+                                        style={{ marginLeft: '1em' }}
+                                        href={work.sourceCode}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
                                         source code
                                     </a>
                                 )}

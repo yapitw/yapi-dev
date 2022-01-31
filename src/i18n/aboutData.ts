@@ -84,7 +84,7 @@ export const careerData: {
         title: 'Screening Eagle Dreamlab as Front-end developer',
         period: 'since May 2020, 1 year',
         contents: [
-            'Maintain product\'s back office platform UI with TypeScript and React.',
+            "Maintain product's back office platform UI with TypeScript and React.",
             'Maintain 3D front-end features.',
             'Update and refactor existing code base.',
             'Build new features for the incoming product plan.',

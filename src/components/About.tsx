@@ -77,7 +77,13 @@ const About: React.FC = () => {
                 <h3 className="subtitle">{formatMessage({ id: 'coreSkills.computerGraphics' })}</h3>
                 <ul>
                     {new Array(2).fill('').map((_, index) => {
-                        return <li key={index}>{formatMessage({ id: `coreSkills.computerGraphics.${index + 1}` })}</li>
+                        return (
+                            <li key={index}>
+                                {formatMessage({
+                                    id: `coreSkills.computerGraphics.${index + 1}`,
+                                })}
+                            </li>
+                        )
                     })}
                 </ul>
             </section>

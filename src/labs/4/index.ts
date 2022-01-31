@@ -97,17 +97,19 @@ export class Lab4 extends ThreeLab {
         this.container.style.position = 'relative'
         this.container.appendChild(text)
 
-        const moveHandler = (e: any) => {
+        const moveHandler = (e: PointerEvent | MouseEvent | TouchEvent) => {
             e.preventDefault()
             if (!this.canvas || !this.uniforms.u_mouse) return
             const boundingRect = this.container.getBoundingClientRect()
-            const x = (e.pageX - boundingRect.left) / this.canvas?.clientWidth
-            const y = 1 - (e.pageY - boundingRect.top) / this.canvas?.clientHeight
-            this.uniforms.u_mouse.value.x = x
-            this.uniforms.u_mouse.value.y = y
+            if (e instanceof PointerEvent || e instanceof PointerEvent) {
+                const x = (e.pageX - boundingRect.left) / this.canvas?.clientWidth
+                const y = 1 - (e.pageY - boundingRect.top) / this.canvas?.clientHeight
+                this.uniforms.u_mouse.value.x = x
+                this.uniforms.u_mouse.value.y = y
+            }
         }
 
-        const startHandler = (e: any) => {
+        const startHandler = (e: PointerEvent | MouseEvent | TouchEvent) => {
             e.preventDefault()
             moveHandler(e)
             if (!this.uniforms.u_mousedown) return
@@ -116,7 +118,7 @@ export class Lab4 extends ThreeLab {
             this.canvas?.addEventListener(input.end, endHandler)
         }
 
-        const endHandler = (e: Event) => {
+        const endHandler = (e: PointerEvent | MouseEvent | TouchEvent) => {
             e.preventDefault()
             if (!this.uniforms.u_mousedown) return
             this.uniforms.u_mousedown.value = false
@@ -134,7 +136,7 @@ export class Lab4 extends ThreeLab {
             end: 'pointerup',
         }
 
-        const inputDetection = (e: Event) => {
+        const inputDetection = (e: PointerEvent | MouseEvent | TouchEvent) => {
             e.preventDefault()
             if (e.type == 'touchstart') {
                 input.start = 'touchstart'
@@ -175,7 +177,7 @@ export class Lab4 extends ThreeLab {
         this.canvas.addEventListener('touchmove', (e) => e.preventDefault())
     }
 
-    animation = () => {
+    animation = (): void => {
         if (!this.playing) return
         const { scene, camera, renderer } = this
         for (let i = 0; i < 4; i++) {

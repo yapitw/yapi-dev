@@ -13,7 +13,7 @@ export class Lab0 extends ThreeLab {
         this.init()
         this.animation()
     }
-    init = () => {
+    init = (): void => {
         this.pixelRatio = 1
         this.renderSize = 512
         const { scene, camera, renderer, pixelRatio, renderSize } = this
@@ -44,7 +44,7 @@ export class Lab0 extends ThreeLab {
         const mesh = new THREE.Mesh(geometry, material)
         scene.add(mesh)
     }
-    animation = () => {
+    animation = (): void => {
         if (!this.playing) return
         const { scene, camera, renderer } = this
         if (this.uniforms.u_time) this.uniforms.u_time.value += 1

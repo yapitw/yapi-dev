@@ -7,29 +7,29 @@ export class Vec2 {
         this.x = x
         this.y = y
     }
-    get u() {
+    get u(): number {
         return this.x
     }
-    get v() {
+    get v(): number {
         return this.y
     }
-    add = (vec: Vec2) => {
+    add = (vec: Vec2): void => {
         this.x += vec.x
         this.y += vec.y
     }
-    deduect = (vec: Vec2) => {
+    deduct = (vec: Vec2): void => {
         this.x -= vec.x
         this.y -= vec.y
     }
-    scale = (factor: number) => {
+    scale = (factor: number): void => {
         this.x *= factor
         this.y *= factor
     }
-    normalize = () => {
+    normalize = (): void => {
         this.x /= this.magnitude()
         this.y /= this.magnitude()
     }
-    magnitude = () => {
+    magnitude = (): number => {
         const { pow } = Math
         const { x, y } = this
         return pow(pow(x, 2) + pow(y, 2), 0.5)
@@ -58,7 +58,7 @@ export class Particle {
         this.velocity = new Vec2(0, 0)
     }
 
-    update() {
+    update(): void {
         this.age++
         this.speed.scale(this.mass)
         this.speed.add(this.velocity)
@@ -66,10 +66,10 @@ export class Particle {
         this.position.add(this.speed)
     }
 
-    get x() {
+    get x(): number {
         return this.position.x
     }
-    get y() {
+    get y(): number {
         return this.position.y
     }
 }
@@ -98,12 +98,12 @@ export class ParticleSystem {
         this.init()
     }
 
-    init = () => {
+    init = (): void => {
         this.particles = []
         this.time = 0
     }
 
-    update = () => {
+    update = (): void => {
         for (let i = 0; i < 10; i++) {
             if (this.particles.length < this.MAXIMUM) {
                 const particle = new Particle({
@@ -130,5 +130,5 @@ export class ParticleSystem {
         this.particles = this.particles.filter((particle) => !particle.kill)
     }
 
-    draw = (particle: Particle): void => {}
+    draw: (_particle: Particle) => void = () => undefined
 }

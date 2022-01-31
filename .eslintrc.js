@@ -3,21 +3,25 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended'],
+    extends: ['plugin:react/recommended', 'plugin:@typescript-eslint/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
         },
-        ecmaVersion: 12,
+        ecmaVersion: 13,
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint'],
+    plugins: ['react', '@typescript-eslint', 'prettier'],
     rules: {
-        indent: ['error', 4],
-        'linebreak-style': ['error', 'unix'],
-        quotes: ['error', 'single'],
-        semi: ['error', 'never'],
-        'react/prop-types': ['off'],
+        'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+        'react/prop-types': 'off',
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            {
+                args: 'none',
+                argsIgnorePattern: '^_',
+            },
+        ],
     },
 }

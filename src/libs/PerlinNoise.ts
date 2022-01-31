@@ -1,5 +1,3 @@
-// eslint-disable-file
-// @ts-nocheck
 export default class PerlinNoise {
     PERLIN_YWRAPB: number
     PERLIN_YWRAP: number
@@ -16,7 +14,7 @@ export default class PerlinNoise {
         this.PERLIN_ZWRAPB = 8
         this.PERLIN_ZWRAP = 1 << this.PERLIN_ZWRAPB
         this.PERLIN_SIZE = 4095
-        this.perlin = null
+        this.perlin = []
         this.perlin_octaves = 4 // default to medium smooth
         this.perlin_amp_falloff = 0.5 // 50% reduction/octave
 
@@ -114,7 +112,7 @@ export default class PerlinNoise {
         return r
     }
 
-    noiseDetail(lod, falloff) {
+    noiseDetail(lod: number, falloff: number): void {
         if (lod > 0) {
             this.perlin_octaves = lod
         }
@@ -123,7 +121,7 @@ export default class PerlinNoise {
         }
     }
 
-    noiseSeed(seed) {
+    noiseSeed(seed: number): void {
         const { PERLIN_SIZE } = this
         // Linear Congruential Generator
         // Variant of a Lehman Generator
@@ -136,9 +134,9 @@ export default class PerlinNoise {
             const a = 1664525
             // c and m should be co-prime
             const c = 1013904223
-            let seed, z
+            let seed: number, z: number
             return {
-                setSeed: function (val) {
+                setSeed: function (val: number) {
                     // pick a random seed if val is undefined or null
                     // the >>> 0 casts the seed to an unsigned 32-bit integer
                     z = seed = (val == null ? Math.random() * m : val) >>> 0
@@ -164,6 +162,6 @@ export default class PerlinNoise {
     }
 }
 
-function scaled_cosine(i) {
+function scaled_cosine(i: number) {
     return 0.5 * (1.0 - Math.cos(i * Math.PI))
 }

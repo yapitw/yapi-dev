@@ -7,7 +7,6 @@ export const sketch = (s: P5): void => {
         s.createCanvas(500, 500)
         s.background(100)
         centerPoint = s.createVector(s.width / 2, s.height / 2)
-        
     }
 
     s.draw = () => {

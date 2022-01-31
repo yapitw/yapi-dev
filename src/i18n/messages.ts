@@ -9,12 +9,11 @@ const allMessages: { [key in Languages]: { [key: string]: string } } = {
         skillSet: JSON.stringify(skillsData),
         careerData: JSON.stringify(careerData),
         ...en,
-
     },
     zh: {
         skillSet: JSON.stringify(skillsDataZh),
         careerData: JSON.stringify(careerDataZh),
-        ...zh
+        ...zh,
     },
 }
 

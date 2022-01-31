@@ -1,8 +1,7 @@
 import p5 from 'p5'
-import { moveEmitHelpers } from 'typescript'
 import { CANVAS_SIZE } from './configs'
 
-export const lecture2_1 = (s: p5) => {
+export const lecture2_1 = (s: p5): void => {
     class Mover {
         s: p5
         pos: p5.Vector
@@ -82,7 +81,7 @@ export const lecture2_1 = (s: p5) => {
 }
 lecture2_1.title = 'Force - Simulating Forces: Gravity and Wind'
 
-export const lecture2_2 = (s: p5) => {
+export const lecture2_2 = (s: p5): void => {
     class Mover {
         s: p5
         pos: p5.Vector
@@ -101,8 +100,8 @@ export const lecture2_2 = (s: p5) => {
         }
 
         applyForce(force: p5.Vector) {
-            const f = p5.Vector.div(force, this.mass)
-            this.acc.add(f)
+            const f = force.div(this.mass)
+            this.acc = this.acc.add(f)
         }
 
         edges() {
@@ -158,8 +157,8 @@ export const lecture2_2 = (s: p5) => {
         }
 
         const gravity = s.createVector(0, 1)
-        const weightA = p5.Vector.mult(gravity, moverA.mass)
-        const weightB = p5.Vector.mult(gravity, moverB.mass)
+        const weightA = gravity.mult(moverA.mass)
+        const weightB = gravity.mult(moverB.mass)
         moverA.applyForce(weightA)
         moverB.applyForce(weightB)
 
@@ -174,7 +173,7 @@ export const lecture2_2 = (s: p5) => {
 }
 lecture2_2.title = 'Force - Mass and Acceleration'
 
-export const lecture2_3 = (s: p5) => {
+export const lecture2_3 = (s: p5): void => {
     class Mover {
         s: p5
         pos: p5.Vector
@@ -214,8 +213,8 @@ export const lecture2_3 = (s: p5) => {
         }
 
         applyForce(force: p5.Vector) {
-            const f = p5.Vector.div(force, this.mass)
-            this.acc.add(f)
+            const f = force.div(this.mass)
+            this.acc = this.acc.add(f)
         }
 
         edges() {
@@ -275,7 +274,7 @@ export const lecture2_3 = (s: p5) => {
             }
 
             const gravity = s.createVector(0, 1)
-            const weight = p5.Vector.mult(gravity, mover.mass)
+            const weight = gravity.mult(mover.mass)
             mover.applyForce(weight)
             mover.friction()
 
@@ -287,7 +286,7 @@ export const lecture2_3 = (s: p5) => {
 }
 lecture2_3.title = 'Force - Friction'
 
-export const lecture2_4 = (s: p5) => {
+export const lecture2_4 = (s: p5): void => {
     class Mover {
         s: p5
         pos: p5.Vector
@@ -306,7 +305,6 @@ export const lecture2_4 = (s: p5) => {
         }
 
         drag(c: number) {
-            const { s } = this
             // Direction of Drag
             const drag = this.vel.copy()
             drag.normalize()
@@ -319,7 +317,7 @@ export const lecture2_4 = (s: p5) => {
         }
 
         applyForce(force: p5.Vector) {
-            const f = p5.Vector.div(force, this.mass)
+            const f = force.div(this.mass)
             this.acc.add(f)
         }
 
@@ -384,7 +382,7 @@ export const lecture2_4 = (s: p5) => {
             }
 
             const gravity = s.createVector(0, 1)
-            const weight = p5.Vector.mult(gravity, mover.mass)
+            const weight = gravity.mult(mover.mass)
             mover.applyForce(weight)
 
             if (mover.pos.y > s.height / 2) {

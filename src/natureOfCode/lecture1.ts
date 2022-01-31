@@ -1,7 +1,7 @@
 import p5 from 'p5'
 import { CANVAS_SIZE } from './configs'
 
-export const lecture1_1 = (s: p5) => {
+export const lecture1_1 = (s: p5): void => {
     class Walker {
         pos: p5.Vector
         s: p5
@@ -39,7 +39,7 @@ export const lecture1_1 = (s: p5) => {
 }
 lecture1_1.title = 'Vector Random Walker'
 
-export const lecture1_2 = (s: p5) => {
+export const lecture1_2 = (s: p5): void => {
     class Walker {
         pos: p5.Vector
         vel: p5.Vector
@@ -52,7 +52,6 @@ export const lecture1_2 = (s: p5) => {
         }
 
         update() {
-            const { s } = this
             this.pos.add(this.vel)
         }
 
@@ -80,7 +79,7 @@ export const lecture1_2 = (s: p5) => {
 }
 lecture1_2.title = 'Vector Math - Add'
 
-export const lecture1_3 = (s: p5) => {
+export const lecture1_3 = (s: p5): void => {
     s.setup = () => {
         s.createCanvas(CANVAS_SIZE, CANVAS_SIZE)
         s.background(0)
@@ -100,7 +99,7 @@ export const lecture1_3 = (s: p5) => {
 }
 lecture1_3.title = 'Vector Math - Random Vector'
 
-export const lecture1_5 = (s: p5) => {
+export const lecture1_5 = (s: p5): void => {
     s.setup = () => {
         s.createCanvas(CANVAS_SIZE, CANVAS_SIZE)
         s.background(0)
@@ -125,7 +124,7 @@ lecture1_5.title = 'Vector Math - Unit Vector (Normalize)'
 // Pythagorean theorem
 // a^2 + b^2 = c^2
 
-export const lecture1_6 = (s: p5) => {
+export const lecture1_6 = (s: p5): void => {
     class Mover {
         s: p5
         pos: p5.Vector
@@ -182,7 +181,7 @@ export const lecture1_6 = (s: p5) => {
 }
 lecture1_6.title = 'Vector Math - Acceleration Vector'
 
-export const lecture1_7 = (s: p5) => {
+export const lecture1_7 = (s: p5): void => {
     let prevPos: p5.Vector
     let pos: p5.Vector
 

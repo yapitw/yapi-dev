@@ -14,7 +14,7 @@ export class Lab8 extends ThreeLab {
         this.init()
         this.animation()
     }
-    init = () => {
+    init = (): void => {
         this.pixelRatio = 1
         this.renderSize = 512
         const { scene, camera, renderer, pixelRatio, renderSize } = this

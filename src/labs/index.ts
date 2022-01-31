@@ -15,7 +15,7 @@ import { Lab13 } from './13'
 import { Lab14 } from './14'
 
 interface ILab {
-    new (elem: HTMLDivElement): any
+    new (_elem: HTMLDivElement): any
     title: string
     description: string
     tags: string

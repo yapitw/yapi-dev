@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IntlProvider } from 'react-intl'
 import allMessages, { Languages } from './messages'
 import queryString from 'query-string'
@@ -12,6 +12,10 @@ const I18nProvider: React.FC = (props) => {
     const paramLang = query.lang as Languages
 
     const [locale, setLocale] = useState<Languages>(paramLang ?? 'en')
+
+    useEffect(() => {
+        setLocale(paramLang)
+    }, [paramLang])
 
     const messages = {
         ...allMessages[defaultLocale],

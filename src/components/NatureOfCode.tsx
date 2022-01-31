@@ -5,7 +5,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import { CANVAS_SIZE } from '../natureOfCode/configs'
 
 const Lecture: React.FC = () => {
-    const params = useParams<{lecture: string}>()
+    const params = useParams<{ lecture: string }>()
     const lecture = params.lecture ?? ''
     const canvasElem = React.useRef<HTMLDivElement>(null)
 

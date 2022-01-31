@@ -110,7 +110,7 @@ export class Lab12 {
         this.instance = new P5(sketch, element)
     }
 
-    destroy = () => {
+    destroy = (): void => {
         this.instance.remove()
     }
 }

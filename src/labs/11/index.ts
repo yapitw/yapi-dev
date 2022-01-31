@@ -1,6 +1,6 @@
 import P5 from 'p5'
 
-export const sketch = (s: P5) => {
+export const sketch = (s: P5): void => {
     const creatures: Creature[] = []
     const margin = 50
     const maxLife = 500
@@ -26,7 +26,7 @@ export const sketch = (s: P5) => {
         s.push()
         s.background(30, 30, 36)
 
-        cvs1.clear()
+        cvs1.clear(0, 0, 0, 1)
         cvs2.push()
         cvs2.blendMode(s.DARKEST)
         cvs2.background(0, 5)
@@ -133,7 +133,7 @@ export class Lab11 {
         this.instance = new P5(sketch, element)
     }
 
-    destroy = () => {
+    destroy = (): void => {
         this.instance.remove()
     }
 }

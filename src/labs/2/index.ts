@@ -30,7 +30,7 @@ export class Lab2 extends ThreeLab {
         this.animation()
     }
 
-    init = () => {
+    init = (): void => {
         const { scene, camera, renderer, pixelRatio, renderSize } = this
         renderer.setSize(renderSize, renderSize, false)
         renderer.setPixelRatio(pixelRatio)
@@ -70,7 +70,7 @@ export class Lab2 extends ThreeLab {
         this.textBuffer1 = new THREE.WebGLRenderTarget(renderSize * pixelRatio, renderSize * pixelRatio, targetOptions)
         this.textBuffer2 = new THREE.WebGLRenderTarget(renderSize * pixelRatio, renderSize * pixelRatio, targetOptions)
     }
-    animation = () => {
+    animation = (): void => {
         if (!this.playing) return
         const { scene, camera, renderer } = this
         if (this.uniforms.u_texture) {

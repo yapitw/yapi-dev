@@ -27,7 +27,7 @@ export class Lab5 extends P5Lab {
         this.init()
     }
 
-    init = () => {
+    init = (): void => {
         this.cvs.width = this.width
         this.cvs.height = this.height
         ;(this.app ? this.app : document.body).appendChild(this.cvs)
@@ -36,18 +36,18 @@ export class Lab5 extends P5Lab {
         this.update()
     }
 
-    clear = () => {
+    clear = (): void => {
         if (!this.ctx) return
         this.ctx.clearRect(0, 0, this.width, this.height)
     }
 
-    draw = () => {
+    draw = (): void => {
         if (!this.ctx) return
         this.ctx.fillStyle = '#ffffff'
         this.ctx.fillRect(0, 0, this.width, this.height)
     }
 
-    drawPerlin = () => {
+    drawPerlin = (): void => {
         if (!this.ctx) return
         // this.ctx.beginPath()
         this.ctx.strokeStyle = '#000'
@@ -76,7 +76,7 @@ export class Lab5 extends P5Lab {
         }
     }
 
-    update = () => {
+    update = (): void => {
         if (!this.playing) return
         this.draw()
         this.drawPerlin()

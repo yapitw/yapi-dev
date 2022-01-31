@@ -4,7 +4,7 @@ import * as lecture1 from './lecture1'
 import * as lecture2 from './lecture2'
 
 const sketches: {
-    [key: string]: ((s: p5) => void) & { title: string }
+    [key: string]: ((_s: p5) => void) & { title: string }
 } = {
     ...lecture0,
     ...lecture1,

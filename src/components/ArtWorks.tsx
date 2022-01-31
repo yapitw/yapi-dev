@@ -32,7 +32,7 @@ const images3D = [
     image3d10,
 ]
 
-const ArtWorks = () => {
+const ArtWorks: React.FC = () => {
     const [viewerSrc, setViewerSrc] = React.useState('')
     const [isViewerVisible, setViewerVisible] = React.useState(false)
 
