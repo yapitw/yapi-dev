@@ -8,10 +8,6 @@ const links = [
         route: '/exp',
     },
     {
-        title: 'About',
-        route: '/about',
-    },
-    {
         title: 'Web',
         route: '/web',
     },
@@ -23,6 +19,10 @@ const links = [
     {
         title: 'Digital Art',
         route: '/art',
+    },
+    {
+        title: 'About',
+        route: '/about',
     },
 ]
 
