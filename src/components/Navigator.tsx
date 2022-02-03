@@ -4,6 +4,10 @@ import './navigator.scss'
 
 const links = [
     {
+        title: 'Graphics',
+        route: '/exp',
+    },
+    {
         title: 'About',
         route: '/about',
     },
@@ -12,13 +16,8 @@ const links = [
         route: '/web',
     },
     {
-        title: 'Graphics',
-        route: '/exp/',
-        hidden: true,
-    },
-    {
         title: 'Natural of code',
-        route: '/noc/',
+        route: '/noc',
         hidden: true,
     },
     {

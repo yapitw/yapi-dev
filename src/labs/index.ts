@@ -6,8 +6,8 @@ import { Lab4 } from './4'
 import { Lab5 } from './5'
 import { Lab6 } from './6'
 import { Lab7 } from './7'
-import { Lab8 } from './8'
-import { Lab9 } from './9'
+// import { Lab8 } from './8'
+// import { Lab9 } from './9'
 import { Lab10 } from './10'
 import { Lab11 } from './11'
 import { Lab12 } from './12'
@@ -27,8 +27,8 @@ const labs: { [key: string]: ILab } = {
     Lab5,
     Lab6,
     Lab7,
-    Lab8,
-    Lab9,
+    // Lab8,
+    // Lab9,
     Lab10,
     Lab11,
     Lab12,

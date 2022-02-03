@@ -17,13 +17,14 @@ const AppRoutes: React.FC = () => {
     }, [pathname])
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/web" element={<WebWorks />} />
             <Route path="/art" element={<ArtWorks />} />
             <Route path="/exp/:id" element={<Experiments />} />
             <Route path={'/noc/:lecture'} element={<NatureOfCode />} />
 
+            <Route path={'/'} element={<Navigate to="/exp/Lab14" />} />
             <Route path={'/exp/'} element={<Navigate to="/exp/Lab14" />} />
             <Route path={'/noc/'} element={<Navigate to="/noc/lecture1_7" />} />
         </Routes>

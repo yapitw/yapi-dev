@@ -17,14 +17,14 @@ const Experiments: React.FC = () => {
 
                 <div className="inner-nav" style={{ maxWidth: 500 }}>
                     {currentIndex > 0 ? (
-                        <NavLink to={list[currentIndex - 1]}>
+                        <NavLink to={'/exp/' + list[currentIndex - 1]}>
                             <h4>PREV</h4>
                         </NavLink>
                     ) : (
                         <div />
                     )}
                     {currentIndex < list.length - 1 && (
-                        <NavLink to={list[currentIndex + 1]}>
+                        <NavLink to={'/exp/' + list[currentIndex + 1]}>
                             <h4>NEXT</h4>
                         </NavLink>
                     )}
