@@ -13,6 +13,7 @@ import { Lab11 } from './11'
 import { Lab12 } from './12'
 import { Lab13 } from './13'
 import { Lab14 } from './14'
+import { Lab15 } from './15'
 
 interface ILab {
     new (_elem: HTMLDivElement): any
@@ -34,6 +35,7 @@ const labs: { [key: string]: ILab } = {
     Lab12,
     Lab13,
     Lab14,
+    Lab15,
 }
 
 export default labs
