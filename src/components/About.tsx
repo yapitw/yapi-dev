@@ -117,7 +117,7 @@ const About: React.FC = () => {
                 <p>{formatMessage({ id: 'education.2.description' })}</p>
             </section>
 
-            <section className="only-print">{skills}</section>
+            {/* <section className="only-print">{skills}</section> */}
         </div>
     )
 }

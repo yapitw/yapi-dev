@@ -73,13 +73,15 @@ export const careerData: {
     period: string
     contents: string[]
 }[] = [
-    // {
-    //     title: 'ByteDance as Software Engineer (Front-end)',
-    //     period: 'since May 2021, present',
-    //     contents: [
-    //         ''
-    //     ]
-    // },
+    {
+        title: 'ByteDance as Software Engineer (full-stack front-end)',
+        period: 'since May 2021, present',
+        contents: [
+            'Develop new features and maintain internal deployment platform.',
+            'Develop repository analytics platform.',
+            'Provide data visualization solutions.',
+        ],
+    },
     {
         title: 'Screening Eagle Dreamlab as Front-end developer',
         period: 'since May 2020, 1 year',
