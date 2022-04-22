@@ -234,6 +234,7 @@ p {
 .canvas-wrapper {
     width: 800px;
     max-width: 100%;
+    user-select: none;
     > div {
         position: relative;
         width: 100%;
