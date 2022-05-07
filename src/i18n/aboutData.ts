@@ -70,12 +70,25 @@ export const skillsDataZh: { title: string; content: string }[] = [
 
 export const careerData: {
     title: string
+    stack?: string[]
     period: string
     contents: string[]
 }[] = [
     {
         title: 'ByteDance as Software Engineer (full-stack front-end)',
         period: 'since May 2021, present',
+        stack: [
+            'TypeScript',
+            'Node.js',
+            'React',
+            'Redux',
+            'GraphQL',
+            'D3.js',
+            'SVG',
+            'Canvas API',
+            'Less',
+            'StyledComponents',
+        ],
         contents: [
             'Develop new features and maintain internal deployment platform.',
             'Develop repository analytics platform.',
@@ -85,6 +98,7 @@ export const careerData: {
     {
         title: 'Screening Eagle Dreamlab as Front-end developer',
         period: 'since May 2020, 1 year',
+        stack: ['TypeScript', 'React', 'Redux', 'Three.js', 'SVG', 'AntDesign', 'Stylus'],
         contents: [
             "Maintain product's back office platform UI with TypeScript and React.",
             'Maintain 3D front-end features.',
@@ -96,6 +110,7 @@ export const careerData: {
     {
         title: 'United Overseas Bank Limited (UOB) as Front-end developer via Optimum solutions',
         period: 'since Sep 2019, 8 months',
+        stack: ['React', 'Redux', 'StyledComponents'],
         contents: [
             'Maintain credit card web application UI with React.',
             'Build event application UI with React.',
@@ -107,6 +122,7 @@ export const careerData: {
     {
         title: 'Orion Consultancy as Web Developer',
         period: 'since May 2018, 1 year 4 months',
+        stack: ['React', 'TypeScript', 'Redux', 'Pixi.js', 'PUG', 'Node.js', 'SCSS'],
         contents: [
             'Develop frontend projects User Interface with React.',
             'Fix and Maintain backend User Interface with React TypeScript.',
@@ -117,6 +133,7 @@ export const careerData: {
     {
         title: '18Design Co., Ltd. as Web Front-end Developer',
         period: 'since 2017, 1 year',
+        stack: ['JQuery', 'SASS', 'Canvas API', 'PUG'],
         contents: [
             'Explore and discuss solution with multiple parties (PM, designer, backend Dev.) for ensuring projects executed well.',
             'Explore social media APIs and use it in projects.',

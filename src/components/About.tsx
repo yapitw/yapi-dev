@@ -30,8 +30,7 @@ const About: React.FC = () => {
                 <h1>{formatMessage({ id: 'profile' })}</h1>
                 <h3>Chun-Hsi Ho 何俊憙 (Pattison Ho), {formatMessage({ id: 'header.description' })}</h3>
                 <p className="print-remarks">
-                    This document is printed from <a href={location.origin}>{location.origin}</a>, see more my works
-                    here.
+                    This page is printed from <a href={location.origin}>{location.origin}</a>, see more my works here.
                 </p>
 
                 <h3 className="subtitle" style={{ marginTop: '1rem' }}>
@@ -97,6 +96,11 @@ const About: React.FC = () => {
                         <h3 className="subtitle">
                             {role.title} - {role.period}
                         </h3>
+                        {role.stack && (
+                            <div className="stack">
+                                <b>Stack: {role.stack?.join(', ')}</b>
+                            </div>
+                        )}
                         <ul>
                             {role.contents.map((content, index) => (
                                 <li key={index}>{content}</li>
