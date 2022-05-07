@@ -7,7 +7,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: $padding-size-y $padding-size-x;;
+        padding: $padding-size-y $padding-size-x;
         border-bottom: 1px solid currentColor;
     }
 
@@ -26,6 +26,11 @@
         height: fit-content;
         margin: 0;
         margin-left: auto;
+        @media screen and (max-width: $break-point) {
+            font-size: 1.2rem;
+            padding: 0;
+            margin-right: 0;
+        }
     }
 
     a {
@@ -33,6 +38,11 @@
         padding: 0 0.5rem;
         text-decoration: none;
         text-transform: uppercase;
+
+        @media screen and (max-width: $break-point) {
+            padding: 0.5rem 0.5rem;
+            margin-right: 0;
+        }
     }
 
     a.active-link {

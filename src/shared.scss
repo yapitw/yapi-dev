@@ -1,3 +1,12 @@
 $break-point: 600px;
-$padding-size-x: 24px;
-$padding-size-y: 24px;
+$padding-size-x: var(--padding-size-x);
+$padding-size-y: var(--padding-size-x);
+
+body {
+    --padding-size-x: 24px;
+    --padding-size-y: 24px;
+    @media screen and (max-width: $break-point) {
+        --padding-size-x: 1rem;
+        --padding-size-y: 1rem;
+    }
+}
