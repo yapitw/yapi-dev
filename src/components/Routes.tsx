@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import About from './About'
 import NatureOfCode from './NatureOfCode'
@@ -9,12 +9,6 @@ import Experiments from './Experiments'
 import Home from './Home'
 
 const AppRoutes: React.FC = () => {
-    const location = useLocation()
-    const { pathname } = location
-
-    React.useEffect(() => {
-        document.getElementById('top-anchor')?.scrollIntoView()
-    }, [pathname])
     return (
         <Routes>
             <Route path="/home" element={<Home />} />
