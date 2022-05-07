@@ -1,3 +1,4 @@
+import { CANVAS_SIZE } from '../../config'
 import PerlinNoise from '../../libs/PerlinNoise'
 import { P5Lab } from '../template'
 
@@ -12,8 +13,8 @@ export class Lab5 extends P5Lab {
     app: HTMLDivElement
     cvs: HTMLCanvasElement
     ctx: CanvasRenderingContext2D | null
-    height = 500
-    width = 500
+    height = CANVAS_SIZE
+    width = CANVAS_SIZE
     gridSize = 25 // size of force saving
     xoff = 0
     yoff = 0

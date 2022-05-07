@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { ThreeLab } from '../template'
 import vertexShader from './shaderVertex.glsl?raw'
 import fragmentShader from './shaderFragment.glsl?raw'
+import { CANVAS_SIZE } from '../../config'
 
 // const texture = new THREE.TextureLoader().load('dist/doodle.png')
 
@@ -34,7 +35,7 @@ export class Lab4 extends ThreeLab {
 
     init = (): void => {
         this.pixelRatio = 1
-        this.renderSize = 512
+        this.renderSize = CANVAS_SIZE
         this.switchTag = false
 
         const { scene, camera, renderer, pixelRatio, renderSize } = this

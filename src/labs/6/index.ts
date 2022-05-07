@@ -1,6 +1,7 @@
 import PerlinNoise from '../../libs/PerlinNoise'
 import { ParticleSystem, Particle, Vec2 } from '../../libs/Particle'
 import { P5Lab } from '../template'
+import { CANVAS_SIZE } from '../../config'
 
 const perlin = new PerlinNoise()
 
@@ -34,8 +35,8 @@ export class Lab6 extends P5Lab {
     init = (): void => {
         this.cvs.width = this.width
         this.cvs.height = this.height
-        this.cvs.style.width = '500px'
-        this.cvs.style.maxHeight = '500px'
+        this.cvs.style.width = CANVAS_SIZE + 'px'
+        this.cvs.style.maxHeight = CANVAS_SIZE + 'px'
         this.app.appendChild(this.cvs)
 
         this.clear()

@@ -3,6 +3,7 @@ import labs from '../labs'
 import { NavLink, useParams } from 'react-router-dom'
 import ThreeContainer from './ThreeContainer'
 import './experiments.scss'
+import { CANVAS_SIZE } from '../config'
 
 const Experiments: React.FC = () => {
     const { id } = useParams<{ id: string }>()
@@ -15,7 +16,7 @@ const Experiments: React.FC = () => {
             <>
                 <ThreeContainer id={id} />
 
-                <div className="inner-nav" style={{ maxWidth: 500 }}>
+                <div className="inner-nav" style={{ maxWidth: CANVAS_SIZE }}>
                     {currentIndex > 0 ? (
                         <NavLink to={'/exp/' + list[currentIndex - 1]}>
                             <h4>PREV</h4>

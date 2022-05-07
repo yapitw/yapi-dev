@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { CANVAS_SIZE } from '../config'
 
 type IUniforms = {
     u_time?: { type: 'f'; value: number }
@@ -14,7 +15,7 @@ export class ThreeLab {
     renderer: THREE.WebGLRenderer
     canvas: HTMLCanvasElement | null = null
     pixelRatio = 1
-    renderSize = 512
+    renderSize = CANVAS_SIZE
     uniforms: IUniforms = {}
     terminated = false
     playing = true

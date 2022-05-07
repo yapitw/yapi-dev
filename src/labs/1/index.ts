@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { ThreeLab } from '../template'
 import vertexShader from './shaderVertex.glsl?raw'
 import fragmentShader from './shaderFragment.glsl?raw'
+import { CANVAS_SIZE } from '../../config'
 
 export class Lab1 extends ThreeLab {
     static title = 'GLSL Texture'
@@ -16,7 +17,7 @@ export class Lab1 extends ThreeLab {
     }
     init = (): void => {
         this.pixelRatio = window.devicePixelRatio
-        this.renderSize = 512
+        this.renderSize = CANVAS_SIZE
         const { scene, camera, renderer, pixelRatio, renderSize } = this
         renderer.setSize(renderSize, renderSize, false)
         renderer.setPixelRatio(pixelRatio)

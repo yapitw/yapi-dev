@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { ThreeLab } from '../template'
 import vertexShader from './shaderVertex.glsl?raw'
 import fragmentShader from './shaderFragment.glsl?raw'
+import { CANVAS_SIZE } from '../../config'
 
 type IUniforms = {
     u_time?: { type: 'f'; value: number }
@@ -24,7 +25,7 @@ export class Lab2 extends ThreeLab {
     constructor(container: HTMLDivElement) {
         super(container)
         this.pixelRatio = 1
-        this.renderSize = 512
+        this.renderSize = CANVAS_SIZE
         this.switchTag = false
         this.init()
         this.animation()

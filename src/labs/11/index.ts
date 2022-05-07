@@ -1,4 +1,5 @@
 import P5 from 'p5'
+import { CANVAS_SIZE } from '../../config'
 
 export const sketch = (s: P5): void => {
     const creatures: Creature[] = []
@@ -11,7 +12,7 @@ export const sketch = (s: P5): void => {
     const colorList = 'e63946-f1faee-a8dadc-457b9d'.split('-').map((c) => '#' + c)
 
     s.setup = () => {
-        s.createCanvas(500, 500)
+        s.createCanvas(CANVAS_SIZE, CANVAS_SIZE)
         amount = (s.width * s.height) / s.pow(75, 2)
         for (let i = 0; i < amount; i++) {
             creatures.push(new Creature())

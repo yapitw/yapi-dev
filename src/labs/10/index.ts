@@ -1,10 +1,11 @@
 import P5 from 'p5'
+import { CANVAS_SIZE } from '../../config'
 
 export const sketch = (s: P5): void => {
     let centerPoint: P5.Vector
 
     s.setup = () => {
-        s.createCanvas(500, 500)
+        s.createCanvas(CANVAS_SIZE, CANVAS_SIZE)
         s.background(100)
         centerPoint = s.createVector(s.width / 2, s.height / 2)
     }
