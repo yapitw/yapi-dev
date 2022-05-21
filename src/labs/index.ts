@@ -35,7 +35,7 @@ const labs: { [key: string]: ILab } = {
     Lab12,
     Lab13,
     Lab14,
-    Lab15,
+    // Lab15,
 }
 
 export default labs
