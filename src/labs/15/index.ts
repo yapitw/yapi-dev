@@ -2,7 +2,7 @@ export class Lab15 {
     static title = 'Vortex'
     static tags = 'p5.js generativeDesign'
     static description = 'Generative Vortex Flow Graphics'
-    url = 'https://generative-graphics.vercel.app'
+    url = 'https://yapi-generative-vortex.vercel.app'
     time = 0
 
     container: HTMLElement
