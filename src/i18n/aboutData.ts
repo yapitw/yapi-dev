@@ -72,7 +72,12 @@ export const careerData: {
     title: string
     stack?: string[]
     period: string
-    contents: string[]
+    contents?: string[]
+    projects?: {
+        name: string
+        description: string
+        responsibility: string[]
+    }[]
 }[] = [
     {
         title: 'ByteDance as Software Engineer (full-stack front-end)',
@@ -89,21 +94,50 @@ export const careerData: {
             'Less',
             'StyledComponents',
         ],
-        contents: [
-            'Develop new features and maintain internal deployment platform.',
-            'Develop repository analytics platform.',
-            'Provide data visualization solutions.',
+        projects: [
+            {
+                name: 'G***y Node',
+                description:
+                    'An internal deployment platform to build node.js projects and deploy to internal cloud services.',
+                responsibility: [
+                    'Develop front-end components',
+                    'Maintain existing service',
+                    'Develop incoming various requirements',
+                ],
+            },
+            {
+                name: 'A******st',
+                description: 'A Repository analytics platform targeting large scale monorepo repositories.',
+                responsibility: [
+                    'Develop features with consumer departments.',
+                    'Build up frontend page and components',
+                    'Integrate backend services with GraphQL.',
+                    'Provide visualization solutions with optimization.',
+                ],
+            },
         ],
     },
     {
         title: 'Screening Eagle Dreamlab as Front-end developer',
         period: 'since May 2020, 1 year',
         stack: ['TypeScript', 'React', 'Redux', 'Three.js', 'SVG', 'AntDesign', 'Stylus'],
-        contents: [
-            "Maintain product's back office platform UI with TypeScript and React.",
-            'Maintain 3D front-end features.',
-            'Update and refactor existing code base.',
-            'Build new features for the incoming product plan.',
+        projects: [
+            {
+                name: 'Screening Eagle inspect back office',
+                description:
+                    'A construction project management platform including BIM model viewer, inspection results viewer, and issues management dashboard.',
+                responsibility: [
+                    'Maintain platform UI with TypeScript and React.',
+                    'Maintain BIM 3D model viewer.',
+                    'Update and refactor existing code base.',
+                    'Build new features for the incoming product plan.',
+                ],
+            },
+            {
+                name: 'Workspace',
+                description: 'A platform to manage inspection devices and their data with Eagle ID accounts.',
+                responsibility: ['Develop various features and requirements at front-end side.'],
+            },
         ],
     },
 

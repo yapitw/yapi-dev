@@ -101,11 +101,27 @@ const About: React.FC = () => {
                                 <b>Stack: {role.stack?.join(', ')}</b>
                             </div>
                         )}
-                        <ul>
-                            {role.contents.map((content, index) => (
-                                <li key={index}>{content}</li>
-                            ))}
-                        </ul>
+                        {role.contents && (
+                            <ul>
+                                {role.contents.map((content, index) => (
+                                    <li key={index}>{content}</li>
+                                ))}
+                            </ul>
+                        )}
+                        {role.projects?.map((entry) => {
+                            return (
+                                <div className="project" key={entry.name}>
+                                    <h3>Project: {entry.name}</h3>
+                                    <div>{entry.description}</div>
+                                    <p>Responsibilities: </p>
+                                    <ul>
+                                        {entry.responsibility.map((item) => (
+                                            <li key={item}>{item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )
+                        })}
                     </section>
                 ))}
             </section>
