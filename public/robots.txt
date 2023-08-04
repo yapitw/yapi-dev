@@ -1,1 +1,2 @@
 Disallow: /test-disallow
+Disallow: /test-disallow-params*?
