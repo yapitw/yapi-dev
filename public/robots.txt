@@ -1,2 +1,3 @@
+User-agent: *
 Disallow: /test-disallow
 Disallow: /test-disallow-params*?
