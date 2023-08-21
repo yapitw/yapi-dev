@@ -80,8 +80,13 @@ export const careerData: {
     }[]
 }[] = [
     {
+        title: 'OKX (front-end engineer)',
+        period: 'September 2022 - present',
+        stack: ['TypeScript', 'Node.js', 'React'],
+    },
+    {
         title: 'ByteDance as Software Engineer (full-stack front-end)',
-        period: 'since May 2021, present',
+        period: 'May 2021 - September 2022',
         stack: [
             'TypeScript',
             'Node.js',

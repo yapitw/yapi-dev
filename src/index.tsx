@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import MenuList from './components/MenuList'
 import Navigator from './components/Navigator'
 import AppRoutes from './components/Routes'
@@ -9,7 +9,7 @@ import './style.scss'
 
 const App: React.FC = () => {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <div className="app">
                 <Navigator />
                 <div className="app-body">
@@ -23,7 +23,7 @@ const App: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </HashRouter>
+        </BrowserRouter>
     )
 }
 
