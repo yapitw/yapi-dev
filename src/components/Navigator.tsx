@@ -31,7 +31,7 @@ const Navigator: React.FC = () => {
         <div className="header">
             <div className="container">
                 <Link className="name" to="/">
-                    CHUN-HSI HO
+                    HO CHUN-HSI
                 </Link>
                 <div className="tabs">
                     {links.map((link, i) => {

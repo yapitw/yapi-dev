@@ -28,7 +28,7 @@ const About: React.FC = () => {
         <div className="about two-column">
             <section className="primary">
                 <h1>{formatMessage({ id: 'profile' })}</h1>
-                <h3>Chun-Hsi Ho 何俊憙 (Pattison Ho), {formatMessage({ id: 'header.description' })}</h3>
+                <h3>Ho Chun-Hsi 何俊憙 (Pattison Ho), {formatMessage({ id: 'header.description' })}</h3>
                 <p className="print-remarks">
                     This page is printed from <a href={location.origin}>{location.origin}</a>, see more my works here.
                 </p>
