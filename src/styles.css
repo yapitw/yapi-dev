@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * "Plotter sheet": the site reads like a sheet of paper a pen plotter drew on.
+ * Cool paper, graphite type, and one ballpoint-blue pen for anything drawn or interactive.
+ */
+:root {
+  --paper: #f3f4f1;
+  --paper-sunk: #e8eae6;
+  --ink: #1a1d24;
+  --ink-soft: #5b616d;
+  --rule: #d3d6db;
+  --pen: #2340d9;
+  --pen-wash: rgb(35 64 217 / 0.1);
+}
+
+:root[data-theme="dark"] {
+  --paper: #10131c;
+  --paper-sunk: #171b27;
+  --ink: #e6e8ee;
+  --ink-soft: #9aa1b2;
+  --rule: #2a3040;
+  --pen: #8fa3ff;
+  --pen-wash: rgb(143 163 255 / 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10131c;
+    --paper-sunk: #171b27;
+    --ink: #e6e8ee;
+    --ink-soft: #9aa1b2;
+    --rule: #2a3040;
+    --pen: #8fa3ff;
+    --pen-wash: rgb(143 163 255 / 0.12);
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-pen: var(--pen);
+  --color-pen-wash: var(--pen-wash);
+
+  --font-sans: "Mona Sans", "PingFang TC", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+
+  /* A classic typographic scale: 12 14 16 18 21 24 36 48 72 */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.3125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 3rem;
+  --text-4xl: 4.5rem;
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    color-scheme: light dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-md);
+    line-height: 1.55;
+    font-variation-settings: "wdth" 100;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--pen);
+    color: var(--paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--pen);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+}
+
+@layer components {
+  /* Headlines lean on Mona Sans' width axis instead of a second typeface. */
+  .display {
+    font-weight: 780;
+    font-variation-settings: "wdth" 125;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+
+  .heading {
+    font-weight: 650;
+    font-variation-settings: "wdth" 112;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .link {
+    color: var(--pen);
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in srgb, var(--pen) 40%, transparent);
+  }
+
+  .link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Sketches render at a fixed resolution; scale their canvas to the stage. */
+  .sketch-stage canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  html {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
