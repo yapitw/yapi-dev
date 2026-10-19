@@ -11,10 +11,10 @@ const I18nProvider: React.FC = (props) => {
     const query = queryString.parse(location.search)
     const paramLang = query.lang as Languages
 
-    const [locale, setLocale] = useState<Languages>(paramLang ?? 'en')
+    const [locale, setLocale] = useState<Languages>(paramLang ?? defaultLocale)
 
     useEffect(() => {
-        setLocale(paramLang)
+        setLocale(paramLang ?? defaultLocale)
     }, [paramLang])
 
     const messages = {
