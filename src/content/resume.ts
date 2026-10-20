@@ -17,6 +17,7 @@ export const labels = {
   stack: { en: 'Stack', zh: '技術' },
   responsibilities: { en: 'Responsibilities', zh: '負責項目' },
   print: { en: 'Print or save as PDF', zh: '列印或存成 PDF' },
+  printedFrom: { en: 'Printed from', zh: '列印自' },
 } satisfies Record<string, Text>
 
 export const profile = {

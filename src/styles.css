@@ -139,10 +139,39 @@
   }
 }
 
+@page {
+  size: A4;
+  margin: 12mm 14mm;
+}
+
 @media print {
+  /* Paper is always light, whatever theme the screen is in. Doubled :root outranks the dark selectors above. */
+  :root:root {
+    --paper: white;
+    --paper-sunk: white;
+    --ink: black;
+    --ink-soft: #4a4f59;
+    --rule: #d3d6db;
+    --pen: #2340d9;
+    color-scheme: light;
+  }
+
+  /* Every size and space is in rem, so shrinking the root scales the whole page down to paper size. */
   html {
+    font-size: 11px;
     background: white;
     color: black;
+  }
+
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+  }
+
+  p,
+  ul > li {
+    break-inside: avoid;
   }
 
   .no-print {
