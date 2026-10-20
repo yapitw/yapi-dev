@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { useRef } from 'react'
 import { ExperimentCard } from '#/components/ExperimentCard'
 import { FlowField } from '#/components/FlowField'
 import { experiments } from '#/content/experiments'
@@ -13,14 +14,15 @@ const featured = experiments.slice(0, 6)
 
 function Home() {
   const current = career[0]
+  const headline = useRef<HTMLHeadingElement>(null)
 
   return (
     <>
       <section className="relative h-[min(86svh,820px)] min-h-[520px] overflow-hidden border-b border-rule">
-        <FlowField className="absolute inset-0" />
+        <FlowField className="absolute inset-0" avoid={headline} />
         <div className="pointer-events-none absolute inset-x-0 bottom-0">
           <div className="mx-auto max-w-6xl px-4 pb-10 sm:px-6 sm:pb-14">
-            <h1 className="display text-[clamp(3.25rem,12vw,9.5rem)]">
+            <h1 ref={headline} className="display text-[clamp(3.25rem,12vw,9.5rem)]">
               Ho
               <br />
               Chun-Hsi
